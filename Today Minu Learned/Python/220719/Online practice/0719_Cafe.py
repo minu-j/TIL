@@ -4,6 +4,7 @@ print('총 주문 건 수 : ', len(orders)) # 총 주문 건 수
 
 orders_set = set(orders) # set에 메뉴 list 저장하여 중복 제거
 orders = list(orders_set) # set으로 중복 제거된 목록을 list로 저장
-orders.sort(reverse=True) # list에 저장된 항목을 내림차순으로 정렬
+orders.sort() # list에 저장된 항목을 오름차순으로 정렬
+orders = orders[::-1] # 정렬된 오름차순을 역순으로 배열하여 내림차순으로 정렬
 
 print('중복을 제거한 메뉴 : ', orders) # 중복을 제거한 메뉴
