@@ -157,6 +157,10 @@
 
 5. None : 값이 없음을 표현하기 위한 문자열
 
+---
+
+## 데이터의 저장
+
 ### 컨테이너
 
 > 여러개의 값(데이터)를 담을 수 있는 객체로 서로 다른 자료형을 저장할 수 있음
@@ -255,6 +259,8 @@
             string, interger, float, boolean, tuple, range
           * 각 key의 값은 어떤 형태이든 상관 없음
 
+
+
 ### 형 변환
 
 > 파이썬에서 데이터 형태는 서로 변환할 수 있음.
@@ -294,7 +300,9 @@
 
 > input()을 이용한 사용자 데이터 입력은 숫자도 문자열로 저장됨.
 
+---
 
+## 데이터의 처리
 
 ### 제어문(Control statement)
 
@@ -510,7 +518,9 @@
 
 ---
 
-## 함수(Function)
+
+
+### 함수(Function)
 
 * 특정한 기능을 하는 코드의 조각(묶음)
 * 특정 코드를 매번 다시 작성하지 않고 필요시에만 호출하여 간편히 사용
@@ -784,9 +794,71 @@ add(2,3)
   print(x) #0
   ```
 
+
+
 ### 함수의 응용
 
 - map(function, iterable)
+
 - filter(function, iterable)
+
 - zip(*iterables)
-- lambda[parameter]
+
+- lambda[parameter] : 익명의 함수
+
+- 재귀 함수 : 자기 자신을 호출하는 함수
+
+  예 ) 팩토리얼
+
+  > 재귀함수 주의사항 :  base case에 도달할 때 까지 함수를 호출함.
+  >
+  > 메모리 스택이 넘치게 되면 프로그램이 동작하지 않게 됨.
+  >
+  > 파이썬에서는 최대 재귀 깊이(maximum recursion depth)가 1000번
+
+---
+
+
+
+### 모듈과 패키지
+
+> 외부 개발자들이 만들어놓은 코드를 가져오기 위한 기능
+
+- 모듈(module) : 다양한 기능을 하는 코드를 하나의 파일로 만든 것
+
+  - import module
+  - from module import var, function, Class
+  - from module import *
+
+- 패키지(pakage) : 다양한 파일을 하나의 폴더로 묶은 것
+
+  - from package import module
+  - from pakage.module import var, function, Class
+
+  > - 라이브러리(library) : 다양한 패키지를 하나의 묶음으로
+  > - pip : 이것을 관리하는 관리자
+  > - 가상환경 : 패키지의 활용 공간
+
+- 파이썬 표준 라이브러리
+
+- 파이썬 패키지 관리자(pip) : pypi에 저장된 외부 패키지들을 설치하도록 도와주는 관리자
+
+  - 패키지 설치 : 최신버전/특정버전/최소버전을 명시하여 설치할 수 있음.
+  - pip 명령어
+    - $ pip list
+    - $ pip show pakage
+    - $ pip freeze > requirements.txt : 설치된 패키지 목록 출력
+    - $ pip intall -r requirements.txt : 패키지 목록대로 설치
+
+- 사용자 모듈과 패키지
+
+  - 사용자가 만든 .py파일에 있는 함수를 다른 py파일에서 응용 가능
+
+
+
+### 가상환경
+
+> 가상환경을 만들고 관리하는데 사용되는 모듈
+>
+> 특정 디렉토리에 가상 환경을 만들고, 고유한 파이썬 패키지 집합을 가질 수 있음.
+
