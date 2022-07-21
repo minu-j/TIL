@@ -488,18 +488,18 @@
        ```
 
      * Dictionary Comprehension
-    
+   
        ```python
        {key: value for 변수 in iterable}
        {key: value for 변수 in iterable if 조건식}
        ```
-    
+   
        ```python
        cubic_dict = {}
        for number in range(1, 4)
            coubic_dict[number] = number ** 3
        print(cubic_dict)
-    
+        
        cubic_dict = {number: number ** 3 for number in range(1,4)}
        print(cubic dict)
        # 위와 동일 출력
@@ -862,5 +862,3 @@ add(2,3)
 > 가상환경을 만들고 관리하는데 사용되는 모듈
 > 
 > 특정 디렉토리에 가상 환경을 만들고, 고유한 파이썬 패키지 집합을 가질 수 있음.
-
-

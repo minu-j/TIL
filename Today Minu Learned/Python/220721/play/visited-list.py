@@ -8,13 +8,7 @@ while True:
     else:
         visit = int(input('방문할 인덱스를 고르세요 : '))
 
-        if visit >= 5:
-            print('==========')
-            print('다시 고르자')
-            print('==========')
-            pass
-
-        elif visit < 0:
+        if visit >= 5 or visit < 0:
             print('==========')
             print('다시 고르자')
             print('==========')
