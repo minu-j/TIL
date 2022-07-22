@@ -21,7 +21,7 @@ def movie_info(movie, genres):
         'genre_ids' : gen_name # 위에서 만들어진 리스트를 출력합니다.
     }
 
-    pprint(movie_data)
+    return movie_data
 
 # 아래의 코드는 수정하지 않습니다.
 if __name__ == '__main__':

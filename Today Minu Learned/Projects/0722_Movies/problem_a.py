@@ -13,7 +13,7 @@ def movie_info(movie):
         'overview' : movie_dict['overview'],
         'genre_ids' : movie_dict['genre_ids']
     }
-    pprint(movie_data) # 영화 정보 디렉토리를 보기 좋게 출력합니다.
+    return movie_data # 영화 정보 디렉토리를 리턴합니다.
 
 # 아래의 코드는 수정하지 않습니다.
 if __name__ == '__main__':

@@ -21,7 +21,7 @@ def dec_movies(movies):
             title.append(movie["title"]) # 제목을 제목 리스트에 추가합니다.
         else:
             continue
-    print(title)
+    return title
 
 # 아래의 코드는 수정하지 않습니다.
 if __name__ == '__main__':

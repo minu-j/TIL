@@ -15,7 +15,7 @@ def max_revenue(movies):
             title = movie["title"] # 타이틀 변수에 해당 영화의 제목을 할당합니다.
         else:
             continue
-    print(title) # 저장된 영화의 타이틀을 불러옵니다.
+    return title # 저장된 영화의 타이틀을 리턴합니다.
 
         
         

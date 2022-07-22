@@ -27,7 +27,7 @@ def movie_info(movies, genres):
             'genre_ids' : gen_name
         }
         all_movie.append(movie_data)
-    pprint(all_movie)
+    return all_movie
         
 # 아래의 코드는 수정하지 않습니다.
 if __name__ == '__main__':
