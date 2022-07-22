@@ -486,25 +486,24 @@
        print(cubic list)
        # 위와 동일 출력
        ```
-
+     
      * Dictionary Comprehension
-   
+       
        ```python
        {key: value for 변수 in iterable}
        {key: value for 변수 in iterable if 조건식}
        ```
-   
+       
        ```python
        cubic_dict = {}
        for number in range(1, 4)
            coubic_dict[number] = number ** 3
        print(cubic_dict)
-        
+       
        cubic_dict = {number: number ** 3 for number in range(1,4)}
        print(cubic dict)
        # 위와 동일 출력
        ```
-
 * 반복문 제어
   
   * break : 반복문을 종료
