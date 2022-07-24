@@ -3,13 +3,14 @@ def is_id_valid(user_data):
     # 여기에 코드를 작성합니다.
 
     last_id = list(user_data['id'][-1::])
+    oknum = str(list(range(0, 10)))
     
-    if last_id == '1' or '2' or '3' or '4' or '5' or '6' or '7' or '8' or '9':
+    if last_id[0] in oknum:
         num = True
     else:
         num = False
     
-    return(num)
+    return num
 
 
 # 아래의 코드는 수정하지 않습니다.
