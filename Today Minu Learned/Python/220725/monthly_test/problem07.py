@@ -2,19 +2,21 @@
 def dec_to_bin(n):
     pass
     # 여기에 코드를 작성하여 함수를 완성합니다.
-    bin_num = []
+    bin = []
+    while True:
+        while n > 1:
+            bin.append(n % 2)
+            n = n // 2
+            dec_to_bin(n)
+        bin.append(n)
+        break
 
-    while n > 1:
-        if n == 1:
-        elif n == 0
-        else:
-        bin_num.append(n % 2)
-        n = n // 2
-        print(bin_num)
+    bin = bin[::-1]
 
-     
-    n = bin_num[::-1]
-    return n
+    ans = ''
+    for i in bin:
+        ans += str(i)
+    return int(ans)
 
 # 아래의 코드를 수정하거나 새롭게 추가하지 않습니다.
 if __name__ == '__main__':
