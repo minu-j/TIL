@@ -409,19 +409,7 @@
        # eric
        ```
        
-       for student in grades:
-       
-           print(student, grades[student])
-       
-       # john 80
-       
-       # eric 90
-       
-       ```
-       
-       ```
-     
-     * 추가 메서드를 활용한 딕셔너리 순회
+       추가 메서드를 활용한 딕셔너리 순회
        
        * keys() : key로 구성된 결과
        * values() : value로 구성된 결과
@@ -444,7 +432,7 @@
        # john 80
        # eric 90
        ```
-     
+       
      * enumerate 순회
        
        * enumerate() : (index, value) 형태의 tuple로 구성된 열거 객체를 반환
@@ -861,3 +849,196 @@ add(2,3)
 > 가상환경을 만들고 관리하는데 사용되는 모듈
 > 
 > 특정 디렉토리에 가상 환경을 만들고, 고유한 파이썬 패키지 집합을 가질 수 있음.
+
+
+
+## 데이터 구조
+
+* 데이터 구조를 활용하기 위해서는 메서드(method)를 활용한다.
+
+  * 매서드는 클래스 내부에 정의한 함수(사실상 함수와 동일)
+
+    ```python
+    데이터구조.메서드()
+    ```
+
+### 문자열(string type)
+
+* 문자들의 배열(sequence of characters), 모든 문자는 str타입(변경 불가능한 immutable)
+
+* 문자열 조회/탐색 및 검증 메서드
+
+  ```python
+  s.find(x) # x의 첫번째 위치를 반환, 없으면 -1을 반환
+  s.index(x) # x의 첫번째 위치를 반환, 없으면 오류 발생
+  
+  s.isalpha(x) # 알파벳 문자 여부(단순 알파벳이 아닌 유니코드상 letter)
+  
+  s.isupper(x) # 대문자 여부
+  s.islower(x) # 소문자 여부
+  
+  s.istitle(x) # 타이틀 형식 여부
+  
+  s.isdecimal() # 숫자 여부(가장 엄격하게 숫자인 문자들)
+  s.isdigit()  # 숫자 여부(숫자와 비슷하거나 원문자 등도 포함)
+  s.isnumeric() # 숫자 여부(분수 형태, 로마자 등의 특수문자도 포함)
+  
+  s.replace(old, new[,count]) # 대상 문자를 새로운 글자로 바꿔서 반환
+  # count : 
+  
+  s.strip([chars]) # 공백이나 특정 문자를 제거(양쪽)
+  s.lstrip() # 왼쪽을 제거
+  s.rstrip() # 오른쪽을 제거
+  # 문자열을 지정하지 않으면 공백을 제거
+  
+  s.split(sep=None, maxsplit=-1) # 공백이나 특정 문자를 기준으로 분리
+  # sep이 None이거나 지정되지 않으면 연속된 공백문자를 단일한 공백문자로 간주하고 선행/후행 공백은 빈 문자열에 포함시키지 않음.
+  
+  'separator'.join([interable])
+  # 반복 가능한(iterable)컨테이너 요소들을 saparator를 끼워서 문자열 반환
+  # iterable에 문자열이 아닌 값들이 있으면 typeerror 발생
+  
+  s.capitalize() # 문자열의 첫번째 문자가 대문자로
+  s.title() # 띄어쓰기 기준 첫번째 문자가 대문자로
+  
+  s.upper() # 전부 대문자로
+  s.lower() # 전부 소문자로
+  s.swapcase() # 대소문자 변경
+  ```
+
+* 리스트 메서드
+
+  ```python
+  l.append(x) # 리스트 마지막 항목에 x를 추가
+  l.insert(i, x) # 리스트 인덱스 i에 항목 x를 삽입
+  
+  l.remove(x) # 리스트 왼쪽부터 첫번째의 x를 제거, 없으면 오류
+  
+  l.pop(i) # 리스트 가장 오른쪽 i를 반환 후 제거
+  l.pop() # 리스트 가장 오른쪽 항목을 반환 후 제거
+  
+  l.extend(m) # 순회형 m의 모든 항목들을 리스트 끝에 추가(+=와 공일)
+  
+  l.index(x, start, end) # 리스트에 있는 항목 중 가장 왼쪽에 있는 x의 인덱스를 반환
+  
+  l.reverse() # 리스트를 거꾸로 정렬
+  l.sort() # 리스트를 정렬(매개변수 이용 가능)
+  
+  l.count(x) # 리스트에서 항목 x가 몇개 존재하는지 갯수를 반환
+  ```
+
+* 튜플 관메서드 : 튜플은 변경할 수 없기 때문에 값에 영향을 미치지 않는 메서드만 지원
+
+* 연산자
+
+  * 멤버십 연산자
+
+    * in, not in : 포함여부 확인
+
+      ```python
+      print('a' in 'apple') #True
+      ```
+
+    * 산술연산자(+)
+
+    * 반복 연산자(*)
+
+* 셋 메서드
+
+  ```python
+  s.copy() # 셋의 얕은 복사본을 반환
+  
+  s.add(x) # 항목x가 셋에 없다면 추가
+  
+  s.pop() # 셋s에서 랜덤하게 항목을 반환하고 해당 항목을 제거(순서가 없기 때문에), set이 비어있을 경우 KeyError
+  
+  s.remove(x) # 항목 x를 삭제, 존재하지 않을 경우 KeyError
+  s.discard(x) # 항목x를 삭제, 존재하지 않아도 에러x
+  
+  s.update(t) # 셋t에 있는 모든 항목 중 셋s에 없는 항목을 추가
+  
+  s.clear() # 모든 항목을 제거
+  
+  s.isdisjoint(t) # 셋 s와 t가 서로소인 경우 True
+  s.issubset(t) # 셋 s가 t의 하위 셋인 경우 True
+  s.issuperset(t) # 셋 s가 t의 상위 셋인 경우 True
+  ```
+
+* 딕셔너리 메서드
+
+  ```python
+  d.clear() # 모든 항목을 제거
+  
+  d.copy() # 얕은 복사본 반환
+  
+  d.keys() # 딕셔너리의 모든 키를 담은 뷰를 반환
+  d.values() # 딕셔너리의 모든 값을 담은 뷰를 반환
+  d.items() # 딕셔너리의 모든 키-값의 쌍을 담은 뷰를 반환
+  
+  d.get(k) # 키 k의 값을 반환하는데, 키k가 없을 경우 None 반환
+  d.get(k, v) # k가 딕셔너리에 없을 경우 v를 반환
+  
+  d.pop(k) # k값을 반환하고 삭제하는데, 없을 경우 KeyError
+  d.pop(k, v) # 없을 경우 v 반환
+  
+  d.update([other]) # 딕셔너리 리  d의 값을 매핑하여 업데이트
+  ```
+
+  
+
+## 얕은 복사와 깊은 복사
+
+* 복사의 방법
+
+  * 할당(Assignment)
+
+    * 대입연산자(=) : 해당 객체에 대한 객체 참조를 복사(같은 주소)
+
+      ```python
+      a = [1, 2, 3]
+      b = a
+      ```
+
+      
+
+  * 얕은 복사(Shallow Copy)
+
+    * Slice 연산자를 활용하여 같은 원소를 가진 리스트지만 연산된 결과를 복사(다른 주소)
+
+      ```python
+      a = [1, 2, 3]
+      b = a[:]
+      
+      '''
+      얕은 복사의 주의사항
+      * 리스트 속 리스트의 값은 얕은복사되지 않고 할당됨.
+      '''
+      
+      a = [1, 2, ['a', 'b']]
+      b = a[:]
+      # a = [1, 2, ['a', 'b']] 
+      # b = [1, 2, ['a', 'b']]
+      
+      b[2][0] = 0
+      # a = [1, 2, [0, 'b']] 
+      # b = [1, 2, [0, 'b']]
+      ```
+
+      
+
+  * 깊은 복사(Deep copy)
+
+    ```python
+    import copy
+    
+    a = [1, 2, ['a', 'b']]
+    b = copy.deepcopy(a)
+    # a = [1, 2, ['a', 'b']] 
+    # b = [1, 2, ['a', 'b']]
+    
+    b[2][0] = 0
+    # a = [1, 2, ['a', 'b']] 
+    # b = [1, 2, [0, 'b']]
+    ```
+
+    
