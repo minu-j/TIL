@@ -1037,35 +1037,33 @@ add(2,3)
   # b = [1, 2, [0, 'b']]
   ```
 
-
-
 ---
-
-
 
 ## 객체지향 프로그래밍
 
 > 객체지향 프로그래밍(Object-Oriented Programming, OOP)은 컴퓨터 프로그래밍의 패러다임 중 하나이다. 객체지향 프로그래밍은 컴퓨터 프로그램을 명령어의 목록으로 보는 시각에서 벗어나 여러 개의 독립된 단위, 즉 "객체"들의 모임으로 파악하고자 하는 것이다. 각각의 객체는 메시지를 주고받고, 데이터를 처리할 수 있다.
 
 * 객체
+  
   * 정보(변수)
     * 클래스 변수
     * 인스턴스 변수
   * 행동(함수)
 
 * 객체지향 프로그래밍이 필요한 이유
+  
   * 현실 세계를 프로그램 설계에 반영(추상화)
 
 * 객체지향의 장/단점
+  
   * 장점
     * 클래스 단위로 모듈화시켜 개발할 수 있어 많은 인원이 참여하는 대규모 소프트웨어 개발에 적합
     * 필요한 부분만 수정하기 쉽기 때문에 프로그램 유지보수가 쉬움
   * 단점
     * 설계시 많은 노력과 시간이 필요 : 다양한 객체들의 상호작용 구조를 만들기 위한 시간과 노력이 필요
     * 실행속도가 상대적으로 느림 : 절차지향 프로그래밍이 컴퓨터 처리구조와 비슷해서 실행속도가 빠름
-  > 사람이 편하면, 컴퓨터가 힘들다.
-
-
+      
+      > 사람이 편하면, 컴퓨터가 힘들다.
 
 ## 객체
 
@@ -1078,6 +1076,7 @@ add(2,3)
 * 행동 = 동작 = (함수-메서드)
 
 * 클래스와 객체
+  
   * 클래스(설계도) : 추상적인 정의, 설계 / 예) 가수, 강아지
     클래스를 만든다 == 타입을 만든다.
   * 객체(실제 사례) : 실제 하나의 사례, 예시 / 예) 이찬혁, 리트리버
@@ -1088,55 +1087,55 @@ add(2,3)
 * 파이썬은 모든 것이 객체(object) : 파이썬의 모든 것엔 속성과 행동이 존재
 
 * 객체의 특징
+  
   * 타입(type) : 어떤 연산자(operator)와 조작(method)이 가능한가?
   * 속성(attribute) : 어떤 상태(데이터)를 가지는가?
   * 조작법(method) : 어떤 행위(함수)를 할 수 있는가?
-
+  
   객체(object) = 속성(attribute) + 기능(method)
 
 * 객체와 클래스 문법
-
+  
   ```python
   # 클래스 정의 : 클래스만으로는 원하는 동작을 할 수 없음(설명을 적어놓은 것)
   class.myclass:
     pass
-
+  
   # 인스턴스 생성
   myinstance = myclass()
-
+  
   # 메서드 호출
   myinstance.mymethod()
-
+  
   # 속성
   myinstance.myattribute
   ```
 
 * 클래스와 인스턴스 : 객체의 설계도(클래스)를 가지고 객체(인스턴스)를 생성한다.
-
+  
   * 클래스 : 객체들의 분류 / 설계도(class)
-
+  
   * 인스턴스 : 하나하나의 실체 / 예) 인스턴스(instance)
 
 * 객체의 비교
-
- * == : 동등한(equal) - 두 변수가 참조하는 객체가 동등한(내용이 같은)경우 True
-
- * is : 동일한(identical) - 두 변수가 동일한 객체를 가리키는 경우 True
-
-
+  
+  * == : 동등한(equal) - 두 변수가 참조하는 객체가 동등한(내용이 같은)경우 True
+  
+  * is : 동일한(identical) - 두 변수가 동일한 객체를 가리키는 경우 True
 
 ### OOP의 속성
 
 속성(정보) : 특정 테이터 타입/클래스의 객체들이 가지게 될 상태.데이터를 의미
 
-   1. 인스턴스 변수 : 인스턴스가 개인적으로 가지고 있는 속성(attribute)(개인용)
+1. 인스턴스 변수 : 인스턴스가 개인적으로 가지고 있는 속성(attribute)(개인용)
+   
+   * 생정자 메서드(__int__)에서 self.<name>으로 정의
+   
+   * 인스턴스가 생성된 이후 <instance>.<name>으로 접근 및 할당
 
-       * 생정자 메서드(__int__)에서 self.<name>으로 정의
-
-       * 인스턴스가 생성된 이후 <instance>.<name>으로 접근 및 할당
-
-   2. 클래스 변수 : 클래스 선언 내부에서 정의(공용)
-       * <classname>.<name>으로 접근 및 할당
+2. 클래스 변수 : 클래스 선언 내부에서 정의(공용)
+   
+   * <classname>.<name>으로 접근 및 할당
 
 ```python
 class Circle():
@@ -1163,34 +1162,33 @@ print(c1.pi) # 3.14
 print(c2.pi) # 5
 ```
 
-
-
 ### OPP의 메서드
 
 메서드(행동) : 특정 데이터 타입 클래스의 객체에 공통적으로 적용 가능한 행위(함수)
 
 1. 인스턴스 메서드 : 인스턴스 변수를 사용하거나, 인스턴스 변수에 값을 설정하는 메서드
-
+   
    * 클래스 내부에 정의되는 메서드의 기본
-
+     
      * 호출 시, 첫번째 인자로 인스턴스 자기자신(self)이 전달됨
-
+     
      ```python
      class myclass:
        def instance_method(self, arg1, ...):
      ```
-
+   
    * self : 인스턴스 자기 자신
+     
      * 파이썬에서 인스턴스 메서드는 호출 시 첫번째 인자로 인스턴스 자신이 전달되도록 설계
-
+   
    * 생성자 메서드(constructor method) : 인스턴스 객체가 생성될 때 자동으로 호출되는 메서드
-
+   
    * 매직 메서드 : Duble underscore(_)가 있는 메서드 = 스페셜 메서드, 매직 메서드
-
+     
      * 특정 상황에 자동으로 불리는 메서드
-
+     
      * 예시
-
+     
      ```python
      __str__(self) # 해당 객체의 출력형태를 지정
      __len__(self), __repr__(self)
@@ -1198,52 +1196,52 @@ print(c2.pi) # 5
      __gt__(self, other) # 부등호 연산자(>, greater than)
      __ge__(self, other), __ne__(self, other)
      ```
-
+     
      * 소멸자 메서드(destructor) 메서드 : 인스턴스 객체가 소멸(파괴)되기 직전 호출되는 메서드
 
-
 2. 클래스 메서드 : 클래스가 사용할 메서드
-
+   
    ```python
    class myclass:
    
       @classmethod
       def class_methon(cls, arg1, ...):
-    
+   
    myclass.class_methon(...)
    ```
-
+   
    * 데코레이터 : 함수를 어떤 함수로 꾸며서 새로운 기능을 부여, @로 함수 위에 꾸밈
 
 > 클래스 매서드와 인스턴스 메서드의 차이
+> 
 > * 클래스 매서드 -> 클래스 변수 사용
 > * 인스턴스 메서드 -> 인스턴스 변수 사용
 > 
 > 인스턴스 변수, 클래스 변수를 모두 사용하고 싶다면?
+> 
 > * 클래스는 인스턴스 변수 사용이 불가능
 > * 인스터스 메서드는 클래스 변수, 인스턴스 변수 둘 다 사용이 가능 
 
 3. 스태틱(정적) 메서드 : 인스턴트 변수, 클래스 변수 아무것도 사용하지 않을 경우 사용
-
+   
    * @staricmethod 데코레이터를 사용하여 정의
-
+   
    * 일반 함수처럼 작동하지만, 클래스 이름공간에 귀속됨.
-
+   
    ```python
    class myclass:
-
+   
    @staticmethod
    def static_method(arg1, ...):
-
+   
    myclass.static_method(...)
    ```
-
 * 인스턴스와 클래스 간의 이름공간(name space)
   
   * 클래스를 정의하면, 클래스와 해당하는 이름공간 생성
-
+  
   * 인스턴스를 만들면, 인스턴스 객체가 생성되고 이름 공간 생성
-
+  
   * 인스턴스에서 특정 속성에 접근하면, 인스턴스 - 클래스 순으로 탐색
 
 ### 객체지향의 핵심 4가지
@@ -1263,8 +1261,9 @@ print(c2.pi) # 5
    ```python
    class childClass(parentClass):
    ```
+   
    * 하위 클래스는 상위 클래스에 정의된 속성, 행동, 관계 및 제약 조건을 모두 상속받음.
-  
+   
    * 상속 관련 함수와 메서드
    
    ```python
@@ -1272,79 +1271,77 @@ print(c2.pi) # 5
    issubclass(class, classinfo) # class가 classinfo의 subclass면 True
    super() # 자식클래스에서 부모클래스를 사용하고 싶은 경우
    ```
-
+   
    * 다중 상속 : 두개 이상의 클래스를 상속
-
+     
      * 중복된 속성이나 메서드가 있는 경우 상속 순서에 의해 결정됨
 
 3. 다형성(Polymorphism) : 동일한 메서드가 클래스에 따라 다르게 행동할 수 있음
-
+   
    * 서로 다른 클래스에 속한 개체들이 동일한 메시지에 대해 다른 방식으로 응답할 수 있음
-
+   
    * 매서드 오버라이딩 : 상속받은 메서드를 재정의
      
      * 클래스 상솏, 부모 클래스에서 정의한 메서드를 자식 클래스에서 변경
-
+     
      * 부모 클래스의 매서드 이름과 기본 기능은 그대로 사용하지만, 특정 기능을 바꾸고 싶을 때 사용
 
-
-
 4. 캡슐화 : 객체의 일부 구현 내용에 대해 외부로부터의 직접적인 액세스를 차단
-
+   
    * 예시 : 주민등록번호
-
+   
    * 파이썬에서 암묵적으로 존재하시만, 언어적으로는 존재하지 않음
-
+   
    * 접근 제어자 종류
-  
+     
      1. Public Access Modifier
-
-       * Public Member : 언더바 없이 시작하는 메서드나 속성
-
-         * 어디서나 호출이 가능, 하위클래스 override 허용
-
-         ```python
-         def __init__(self, name, age):
+        
+        * Public Member : 언더바 없이 시작하는 메서드나 속성
+          
+          * 어디서나 호출이 가능, 하위클래스 override 허용
+          
+          ```python
+          def __init__(self, name, age):
            self.name = name
            self.age = 30
-         ```
-
+          ```
+     
      2. Proteched Access Modifier
-
-       * Protected Member : 언더바 1개로 시작하는 메서드나 속성
-
-         * 암묵적 규칙에 의해 부모 클래스 내부와 자식 클래스에서만 호출 가능
-
-         * 하위 클래스 override 허용
-
-         ```python
-         def __init__(self, name, age):
+        
+        * Protected Member : 언더바 1개로 시작하는 메서드나 속성
+          
+          * 암묵적 규칙에 의해 부모 클래스 내부와 자식 클래스에서만 호출 가능
+          
+          * 하위 클래스 override 허용
+          
+          ```python
+          def __init__(self, name, age):
            self.name = name
            self._age = 30
-
-         def get_age(self):
+          
+          def get_age(self):
            return self._age
-         ```
-
+          ```
+     
      3. Private Access Modifier : 언더바 2개로 시작하는 메서드나 속성
-
-       * 본 클래스 내부에서만 사용이 가능
-
-       * 하위클래스 상속 및 호출 불가능, 외부 호출 불가능(오류)
-
-       ```python
+        
+        * 본 클래스 내부에서만 사용이 가능
+        
+        * 하위클래스 상속 및 호출 불가능, 외부 호출 불가능(오류)
+        
+        ```python
          def __init__(self, name, age):
            self.name = name
            self.__age = 30
-
+        
          def get_age(self):
            return self.__age
-         ```
-     
+        ```
+   
    * getter 메서드와 setter 메서드 : 변수에 접근할 수 있는 메서드를 별도 생성
-
+     
      * getter 메서드 : 변수의 값을 읽는 메서드 (@property 데코레이터 사용)
-
+     
      * setter 메서드 : 변수의 값을 설정하는 성격의 메서드(@변수.setter 사용)
 
 ---
@@ -1358,39 +1355,36 @@ print(c2.pi) # 5
 ### 에러와 예외
 
 * 문법 에러(Syntax Error) : 파일이름, 줄번호, ^문자를 통해 파이썬이 코드를 읽어나갈 때 (parser) 문제가 발생할 위치를 표현
-
-   * Invalid syntax : 문법 오류
-
-   * assign to literal : 잘못된 할당
-
-   * EOL(End of line)
-
-   * EOF(End of file)
+  
+  * Invalid syntax : 문법 오류
+  
+  * assign to literal : 잘못된 할당
+  
+  * EOL(End of line)
+  
+  * EOF(End of file)
 
 * 예외(Exception) : 실행도중 예상치 못한 상황을 맞이하면 프로그램 실행을 멈춤
-
-   * ZeroDivisionError : 0으로 나누려고 할 때 발생
-
-   * NameError : Name space상에 이름이 없을 경우
-
-   * TypeError : 타입 불일치
-
-   * ValueError : 타입은 올바르나 값이 적저라지 않거나 없는 경우
-
-   * IndexError : 인덱스가 존재하지 않거나 범위를 벗어나는 경우
-
-   * KeyError : 해당 키가 존재하지 않는 경우
-
-   * ModuleNotFoundError : 없는 Module을 부르는 경우
-
-   * ImprotError : Module은 있으나 존재하지 않는 클래스/함수를 가져오는 경우
-
-   * KeyboardInterrupt : 임의로 프로그램을 종료하였을 때
-
-   * IndentationError : Indentation이 적절하지 않는 경우
-
-
-
+  
+  * ZeroDivisionError : 0으로 나누려고 할 때 발생
+  
+  * NameError : Name space상에 이름이 없을 경우
+  
+  * TypeError : 타입 불일치
+  
+  * ValueError : 타입은 올바르나 값이 적저라지 않거나 없는 경우
+  
+  * IndexError : 인덱스가 존재하지 않거나 범위를 벗어나는 경우
+  
+  * KeyError : 해당 키가 존재하지 않는 경우
+  
+  * ModuleNotFoundError : 없는 Module을 부르는 경우
+  
+  * ImprotError : Module은 있으나 존재하지 않는 클래스/함수를 가져오는 경우
+  
+  * KeyboardInterrupt : 임의로 프로그램을 종료하였을 때
+  
+  * IndentationError : Indentation이 적절하지 않는 경우
 
 ### 예외 처리
 
