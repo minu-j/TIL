@@ -1,16 +1,12 @@
 n = int(input())
+original_n = n * 1
+count = 0
 
-count = 1
-a = n // 10
-b = n % 10
-mr = 0
-
-while count < 10:
-    if n < 10:
-        n = n + mr * 10    
-    else:
-        a = n // 10
-        b = n % 10 
-        n = a + b
-    count += 1
-    print(n, count)
+while True:
+    if 99 > n > 0:
+        j = n % 10
+        n = (n // 10) + (n % 10)
+        n = (j * 10) + (n % 10)
+        count += 1
+        if n == original_n: break 
+print(count)
