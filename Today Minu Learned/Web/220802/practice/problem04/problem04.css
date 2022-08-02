@@ -1,0 +1,54 @@
+/* 여기에 코드를 작성합니다. */
+/* 모든 스타일은 반드시 클래스 선택자를 이용해 정의합니다. 이후 HTML 태그에 해당 클래스를 적용합니다. */
+
+.board {
+    border: 2px solid black;
+    width: 800px;
+    height: 800px;
+    text-size-adjust: 0px;
+    font-size: 0px;
+}
+
+.b {
+    width: 100px;
+    height: 100px;
+    text-size-adjust: 0px;
+    background-color: black;
+    display: inline-block;
+}
+
+.w {
+    width: 100px;
+    height: 100px;
+    text-size-adjust: 0px;
+    background-color: white;
+    display: inline-block;
+}
+
+.pawn {
+    position: absolute;
+    margin: 400px 0px 0px 0px;
+    width: 100px;
+    height: 100px;
+}
+
+.king {
+    position: absolute;
+    margin: 700px 0px 0px 300px;
+    width: 100px;
+    height: 100px;
+}
+
+.queen {
+    position: absolute;
+    margin: 700px 0px 0px 400px;
+    width: 100px;
+    height: 100px;
+}
+
+.rook {
+    position: absolute;
+    margin: 700px 0px 0px 700px;
+    width: 100px;
+    height: 100px;
+}

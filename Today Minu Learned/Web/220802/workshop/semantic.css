@@ -1,0 +1,57 @@
+body {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-style {
+  position: static;
+  top: 0px;
+  text-align: center;
+  background-color: white;
+
+}
+
+.nav-style{
+  text-decoration-line: none;
+  text-decoration: none;
+  color: black;
+  margin-right: 20px;
+}
+
+.nav-style_red{
+  text-decoration-line: none;
+  text-decoration: none;
+  color: red;
+}
+
+.nav-style_header{
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.article-style {
+  /* 5. article에 알맞은 position을 작성하시오. */
+
+
+  /* 아래는 자유롭게 수정하시오. */
+  vertical-align: top;
+}
+
+.aside-style {
+  width: 40vmin;
+  margin: 1rem;
+  float: right;
+}
+
+
+.footer-style {
+  position: fixed;
+  bottom: 0px;
+  text-align: center;
+  width: 100%;
+  background-color: white;
+  opacity: 80%;
+}
+

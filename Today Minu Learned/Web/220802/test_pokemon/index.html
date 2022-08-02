@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      div {
+        height: 100px;
+        background-color: skyblue;
+        background: url(samsung.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .border {
+        border: 11px solid darkgoldenrod;
+        height: 50px;
+        padding: 10px 15px 20px 60px;
+      }
+      span {
+        display: block;
+        padding: 50px;
+        width: 100px;
+        height: 100px;
+        box-sizing: border-box;
+      }
+      input{
+        padding: 10px;
+      }
+      img {
+        width: 100px;
+      }
+    </style>
+    <style>
+      .parent {
+        width: 200px;
+        height: 200px;
+        border: 10px solid black;
+      }
+      .child {
+        width: 100px;
+        height: 100px;
+        border: 10px dotted red;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .child2 {
+        width: 100px;
+        height: 100px;
+        border: 10px dashed blue;
+      }
+    </style>
+</head>
+<body>
+    <h1>내 포켓몬</h1>
+    <marquee behavior="" direction="">
+      <img src="samsung.jpg" alt="">
+
+    </marquee>
+    <header>
+      <nav>
+        <p>내비게이션</p>
+      </nav>
+    </header>
+    <div class="wrap">
+      <div class="item"></div>
+    </div>
+    <form action="">
+      <label for="pw">쉿, 비 밀 번 호 : 
+        <input type="password" placeholder="비밀번호" name="" id="pw">
+        <button>버튼</button>
+        <input type="submit">
+        <button>제출?</button>
+      </label>
+    </form>
+    <div class="border">HTML</div>
+    <span class="border">CSS</span>
+    <span class="border">JAVASCRIPT</span>
+    <img src="samsung.jpg" alt="">
+    <div class="parents">
+      <div class="child"></div>
+    </div>
+    <div class="child2"></div>
+</body>
+</html>
