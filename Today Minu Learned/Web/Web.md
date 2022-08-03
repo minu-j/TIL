@@ -420,3 +420,179 @@ h1 {
   4. fixed : 고정위치
   
   5. sticky : 스크롤에 따라 static -> fixed로 변경
+
+
+### CSS Layout
+: css layout techniques
+  
+  * Display
+
+  * Position
+
+  * Float(CSS1, 1996)
+
+  * Flexbox(2012)
+
+  * Grid(2017)
+
+  * 기타(반응형 웹...)
+
+
+### Normal Flow
+ : inline(좌->우), block(상->하)로 쌓인다
+
+
+### Float
+: Float 요소를 중심으로 텍스트를 감싸게 배치하게 함.
+
+  * none : 기본값
+
+  * left : 요소를 왼쪽으로 띄움
+
+  * right : 요소를 오른쪽으로 띄움
+
+
+### Flexbox
+
+CSS Flexible Box Layout : 행과 열 형태로 아이템을 배치하는 1차원 레이아웃 모델
+
+* 축
+
+  * main axis(메인 축)
+
+  * cross axis(교차 축 - main axis의 수직방향)
+
+* 구성요소
+
+  * Flex Container(부모요소) : 부모 요소에 display: flex
+
+  * Flex Item(자식요소)
+
+* inline flex : Flex 내에서 인라인 요소
+
+* 속성
+
+  * 배치 설정
+
+    * flex-direction : main axis 기준 방향 설정
+
+      1. row(-reverse)
+
+      2. column(-reverse)
+
+    * flex-wrap : 아이템이 컨테이너 영역을 벗어나는 경우 해당 영역 내에 배치되도록 설정
+
+      1. wrap(-reverse)
+
+      2. nowrap
+
+  * 공간 나누기
+
+    * justify-content(main axis) / align-content(cross axis)
+
+      1. flex-start
+
+      2. flex-end
+      
+      3. center
+      
+      4. space-between
+      
+      5. space-around
+      
+      6. space-evenly
+
+  * 정렬
+
+    * align-items : 모든 아이템을 cross axis 기준으로 정렬
+      
+      1. stretch
+      
+      2. flex-start
+      
+      3. flex-end
+      
+      4. center
+      
+      5. baseline
+
+    * align-self : 개별 아이템을 cross axis 기준으로 정렬
+
+      1. stretch
+
+      2. flex-start
+      
+      3. flex-end
+      
+      4. center
+    
+  * 기타 속성
+
+    * flex-grow : 남은 영역을 아이템에 분배
+
+    * order : 배치 순서
+
+## Bootstrap
+
+### CDN
+
+Content Delivery Network
+
+```css
+<head>
+<link href="jsdelivr link">
+</head>
+<body>
+<script src="jsdelivr link">
+</body>
+```
+
+### spacing(margin and padding)
+
+{property}{sides}-{size} mt-3
+
+```html
+<div class="mt-3 ms-5">bootstrap-spacing</div>
+```
+* property : m (margin) / p (padding)
+
+* sides : t (top) / b (bottom) / s (start) / e (end) / x (left and right) / y (top and bottom) / blank (all)
+
+* size : 0~5 / auto
+
+### color
+
+```html
+<div class="text(bg)-primary">
+<div class="text(bg)--secondary">
+<div class="text(bg)-success">
+<div class="text(bg)-info">
+<div class="text(bg)-warning">
+<div class="text(bg)-danger">
+<div class="text(bg)-light">
+<div class="text(bg)-dark">
+```
+
+### text
+
+### display
+
+### position
+
+### button
+
+### dropdown
+
+### Grid system(web design)
+
+bootstrap grid system
+
+* 12개의 column
+
+* 6개의 grid breakpoint(화면크기에 따라 표시할 양을 정하는 분기점)
+
+  ```css
+  .col-{breakpoint}-
+  ```
+
+  xs - sm - md - lg - xl - xxl
