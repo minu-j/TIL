@@ -1,0 +1,41 @@
+/* 03_community.css */
+/* 아래에 코드를 작성해 주세요. */
+
+.first_table {
+    background-color: gray;
+}
+
+.movie_title {
+    width: 120vw;
+}
+
+.title {
+    width: 200vw;
+}
+
+.name {
+    width: 80vw;
+}
+
+.time {
+    width: 80vw;
+}
+
+@media all and (min-width:992px) {
+    .movie_title_max {
+        font-weight: bold;
+    }
+}
+
+@media all and (max-width:991px) {
+    .title_min {
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    .movie_title_min {
+        font-size: x-large;
+    }
+    .name_min {
+        margin-bottom: 25px;
+    }
+}

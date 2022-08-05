@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="01_nav_footer.css">
+  <link rel="stylesheet" href="02_home.css">
+  <title>Community</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-md bg-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand logo" href="#">
+        <img class="logo" src="images/logo.png" alt="logo">
+      </a>
+      <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link fw-bold active text-white" aria-current="page" href="02_home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-light text-white" href="03_community.html">Community</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-light text-white" data-bs-toggle="modal" data-bs-target="#modal" style="cursor:pointer">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 02_home.html -->
+  <header>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/header1.jpg" class="d-block w-100" alt="header1">
+        </div>
+        <div class="carousel-item">
+          <img src="images/header2.jpg" class="d-block w-100" alt="header2">
+        </div>
+        <div class="carousel-item">
+          <img src="images/header3.jpg" class="d-block w-100" alt="header3">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </header>
+
+  <h1 class="text-center mt-5 mb-3 fw-bold">Boxoffice</h1>
+
+  <div>
+    <section class="container">
+      <div class="row row-cols-1 row-cols-sm-3">
+        <article class="col my-3">
+          <div class="card">
+            <img src="images/movie1.jpg" class="card-img-top" alt="movie">
+            <div class="card-body">
+              <h5 class="card-title">쇼생크 탈출</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, ex accusamus.</p>
+            </div>
+          </div>
+        </article>
+        <article class="col my-3">
+          <div class="card">
+            <img src="images/movie2.jpg" class="card-img-top" alt="movie">
+            <div class="card-body">
+              <h5 class="card-title">죽은 시인의 사회</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, ex accusamus.</p>
+            </div>
+          </div>
+        </article>
+        <article class="col my-3">
+          <div class="card">
+            <img src="images/movie3.jpg" class="card-img-top" alt="movie">
+            <div class="card-body">
+              <h5 class="card-title">다크나이트</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, ex accusamus.</p>
+            </div>
+          </div>
+        </article>
+        <article class="col my-3">
+          <div class="card">
+            <img src="images/movie4.jpg" class="card-img-top" alt="movie">
+            <div class="card-body">
+              <h5 class="card-title">그랜드 부다페스트 호텔</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, ex accusamus.</p>
+            </div>
+          </div>
+        </article>
+        <article class="col my-3">
+          <div class="card">
+            <img src="images/movie5.jpg" class="card-img-top" alt="movie">
+            <div class="card-body">
+             <h5 class="card-title">Her</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, ex accusamus.</p>
+            </div>
+          </div>
+        </article>
+        <article class="col my-3">
+          <div class="card">
+            <img src="images/movie6.jpg" class="card-img-top" alt="movie">
+            <div class="card-body">
+              <h5 class="card-title">위대한 쇼맨</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, ex accusamus.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+
+  <footer class="sticky-bottom">
+    <div class="text-center p-2">Web-bootstrap PJT, by Jung MinU</div>
+  </footer>
+
+  <div class="modal" tabindex="-1" id="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex flex-column">
+            <label class="mt-2" for="email">Email address</label>
+            <input class="mt-1" type="email" id="email">
+            <small class="mt-1">We'll never share your email with anyone else.</small>
+            <label class="mt-4" for="Password">Password</label>
+            <input class="mt-1" type="Password" id="Password">
+          </div>
+          <div class="d-flex flex-flow">
+            <input type="checkbox">
+            <p class="ms-2 mt-3" >Check me out</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JS -->
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
