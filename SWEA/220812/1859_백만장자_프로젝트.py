@@ -3,19 +3,20 @@ T = int(input())
 for tc in range(T):
     N = int(input())
     price = list(map(int, input().split()))
-    price.append(0)
+
     start_day = 0
-    end_day = N
+    end_day = N - 1
     income = 0
     day_count = 0
     last_price = price[end_day]
     sum_price = []
 
     for i in range(end_day, start_day, -1):
-        print(i)
-        if last_price >= price[i]:
-            sum_price.append(price[i])
-        elif last_price < price[i]:
+        print(price[i])
+        # if last_price >= price[i]:
+        #     sum_price.append(price[i])
+        # elif last_price < price[i]:
+
 
 
 
