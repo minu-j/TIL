@@ -19,7 +19,7 @@ for i in range(10):
         # dump_count -= 1   # 덤프 1개를 차감
 
         max_box = 0
-        min_box = 999999999999999
+        min_box = 100000
 
         max_idx = min_idx = 0
 
