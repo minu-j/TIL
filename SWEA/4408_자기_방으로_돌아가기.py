@@ -1,11 +1,14 @@
-T = int(input())
-
-for tc in range(T):
+for tc in range(int(input())):
     N = int(input())
+    rooms = [sorted(list(map(int, input().split()))) for _ in range(N)]
 
-    while N > 0:
-        last_room = 0
+    for i in rooms:
+        for j in range(2):
+            i[j] = ((i[j] + 1) // 2) - 1
 
-        for i in range(N):
-            rooms = list(map(int, input().split())
-            if rooms[0] > last_room:
+    way = [0] * 200
+
+    while
+        for i in range(rooms[0][1] - rooms[0][0]):
+
+    print(f'#{tc + 1} {ans}')
