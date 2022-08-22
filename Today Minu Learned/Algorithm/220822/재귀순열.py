@@ -1,0 +1,2 @@
+def perm():
+    if N ==
