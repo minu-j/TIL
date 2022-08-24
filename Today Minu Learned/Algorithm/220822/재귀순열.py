@@ -1,2 +1,0 @@
-def perm():
-    if N ==
