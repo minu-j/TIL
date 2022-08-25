@@ -25,6 +25,8 @@ for tc in range(int(input())):
 
     ans = 0
 
-# 대각선 방향을 확인해야 합니다
+    # 대각선 방향을 확인해야 합니다
+    for i in queens:
+
 
     print(f'#{tc + 1} {ans}')
