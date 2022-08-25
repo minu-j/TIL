@@ -22,7 +22,5 @@ for tc in range(int(input())):
                 if (arr[i] * arr[j]) > max_danjo:
                     max_danjo = arr[i] * arr[j]
                     break
-        if danjo != -1:
-            break   # 큰 단조값이 나왔을 때 종료하는 효율화 필요!!!!!1
 
     print(f'#{tc + 1} {max_danjo}')
