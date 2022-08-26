@@ -11,10 +11,10 @@ for tc in range(int(input())):
     for i in range(N):
         for j in range(N):
 
-            # 해당 좌표가 'o'일 때 해당 좌표를 기점으로 오른쪽, 우하향 대각선, 아래, 좌하향 대각선을 확인해야 함.
+            # 해당 좌표가 'o'일 때
             if board[i][j] == 'o':
 
-                # 델타 좌표만큼 반복하며 카운트
+                #  해당 좌표를 기점으로 오른쪽, 우하향 대각선, 아래, 좌하향 대각선을 확인하며 카운트
                 for k in range(4):
                     count = 0
 
