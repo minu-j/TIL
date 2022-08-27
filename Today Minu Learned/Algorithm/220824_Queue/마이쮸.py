@@ -19,3 +19,4 @@ while mychu:
         print(f'{now}번이 마이쮸를 {taken[now]}개 가져갔고, 남은 마이쮸는 {mychu}개')
     queue.append(now)           # 가져간 후 곧바로 다시 줄서기
     num += 1                    # 1명이 더 와야하니까 번호 +1
+
