@@ -5,21 +5,16 @@ def test(t1, t2):
     C = 0
     for idx_s in range(len(S)):
         if t2 <= idx_s:
-            # print('A', S[idx_s])
             A += S[idx_s]
         elif t1 <= idx_s < t2:
-            # print('B', S[idx_s])
             B += S[idx_s]
         elif idx_s < t1:
-            # print('C', S[idx_s])
             C += S[idx_s]
 
     if K_min <= A <= K_max and K_min <= B <= K_max and K_min <= C <= K_max:
-        # print('True', A, B, C, t1, t2)
 
         return max(A, B, C) - min(A, B, C)
     else:
-        # print('False', A, B, C, t1, t2)
         return False
 
 
@@ -33,8 +28,6 @@ for tc in range(int(input())):
         score[i] += 1
 
     ans = 999999999999999
-
-    # print(test(3, 5))
 
     for T1 in range(1, 101):
         for T2 in range(T1, 101):
