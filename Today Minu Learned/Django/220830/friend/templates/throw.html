@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Throw에 오신 것을 환영합니다.</h2>
+
+  <form action="/catch/" method="GET">
+    <label for="link">검색</label>
+    <input type="text" id="link" name='message'>
+    <input type="submit" value='전송'>
+
+  </form>
+
+
+
+{% endblock content %}
