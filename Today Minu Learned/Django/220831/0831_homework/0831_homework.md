@@ -31,8 +31,8 @@ $ python manage.py shell_plus
 ### 4. Django Model Field
 Django에서 Model을 정의할 때 사용할 수 있는 필드 타입을 5가지 이상 작성하시오.
 
-1. int()
-2. text()
-3. DataField()
-4. CharField()
-5. TextField()
+1. DataField()
+2. CharField()
+3. TextField()
+4. FileField()
+5. ImageField()
