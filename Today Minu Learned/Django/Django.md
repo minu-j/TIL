@@ -159,6 +159,17 @@ CRUD (Create / Read / Update / Delete) :
 
 ### 데이터 객체를 생성하는 3가지 방법
 
-1. article = Article()
-2. article.title
-3. article.save()
+1. 
+   `article = Article()`
+
+   `article.title = '제목'  `
+   
+   ` article.content = '내용'  `
+
+   `article.save()`
+
+2. `article = Article(title = '제목', content = '내용')  `
+
+    `save()`
+ 
+ 3. ` Article.objects.create(title='제목', content='내용')`

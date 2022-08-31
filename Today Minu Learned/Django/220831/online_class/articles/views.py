@@ -6,4 +6,7 @@ def index(request):
 
     # DB의 전체 데이터를 조회
     articles = Article.objects.all()
+    context = {
+        'articles' : articles,
+    }
     return render(request, 'articles/index.html')
