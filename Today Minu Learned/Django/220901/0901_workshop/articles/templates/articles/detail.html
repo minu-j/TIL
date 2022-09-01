@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="fw-bold ms-4">DETAIL</h1>
+<hr>
+<div class="ms-4">
+  <p>{{ article.pk }}번째 글</p>
+
+  <h2>{{ article.title}}</h2>
+  <hr>
+  
+  <div class="p-4 my-4 border rounded-4 border-black">
+    <p>{{ article.content }}</p>
+  </div>
+  
+  
+  <p>작성 : {{ article.created_at }}</p>
+  <p>수정 : {{ article.updated_at }}</p>
+
+  <div class="mt-5">
+    <a class="btn btn-light" href="{% url 'articles:read' %}" role="button">목록</a>
+    <a class="btn btn-secondary" href="{% url 'articles:edit' article.pk %}" role="button">수정</a>
+    <form class="d-inline-block" action="{% url 'articles:delete' article.pk %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" class="btn btn-danger" value="삭제"></input>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

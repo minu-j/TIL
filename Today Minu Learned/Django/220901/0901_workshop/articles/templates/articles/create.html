@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="fw-bold ms-4">NEW</h1>
+
+<form action="{% url 'articles:post' %}" method="GET" class="m-4">
+  <div class="mb-3">
+    <label for="title" class="form-label fs-5 fw-bold">제목</label>
+    <input name="title" type="text" class="form-control" id="title">
+  </div>
+  <div class="mb-3">
+    <label for="content" class="form-label fs-5 fw-bold">내용</label>
+    <textarea name="content" class="form-control" id="content" rows="5"></textarea>
+  </div>
+  <input type="submit" class="btn btn-primary"></input>
+  <a class="btn btn-light" href="{% url 'articles:read' %}" role="button">취소</a>
+</form>
+
+{% endblock content %}
