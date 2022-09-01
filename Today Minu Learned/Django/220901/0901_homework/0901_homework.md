@@ -33,8 +33,12 @@ class Post(models.Model):
 4. my_post 변수에 Post 객체 하나가 저장되어 있다. title을 “안녕하세요” content를 “반갑습니다” 로 수정하기 위한 코드를 작성하시오.
 
     ```python
-    Post.title = Post.GET.get('title')
-    Post.content = Post.GET.get('content')
+    def update(request, pk):
+        Post = Article.objects.get(pk=pk)
+        Post.title = request.POST.get('title')
+        Post.content = request.POST.get('content')
+        Post.save()
+        return redirect('Post:detail', Post.pk)
     ```
 
 --- 
