@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>THROW</h1>
+<hr>
+
+<form action="{% url 'articles:catch' %}" method='GET' style="margin: 20px;">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">EMAIL</label>
+    <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">CONTENT</label>
+    <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <input class="btn btn-primary" type="submit" value="Submit">
+</form>
+
+<hr>
+<a class="btn btn-primary" href="{% url 'articles:index' %}" role="button" style="margin:0px 20px;">돌아가기</a>
+
+{% endblock content %}

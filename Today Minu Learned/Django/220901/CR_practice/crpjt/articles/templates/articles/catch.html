@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>CATCH</h1>
+
+<a href="{% url 'articles:index' %}">index</a>
+<a href="{% url 'articles:throw' %}">throw</a>
+
+{% endblock content %}

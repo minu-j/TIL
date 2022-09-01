@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>INDEX</h1>
+<hr>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col">Context</th>
+      <th scope="col">Created</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for article in articles %}
+      <tr>
+        <th scope="row">{{ article.pk }}</th>
+        <td>{{ article.title}}</td>
+        <td>{{ article.context }}</td>
+        <td>{{ article.created_at }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<hr>
+<a class="btn btn-primary" href="{% url 'articles:throw' %}" role="button" style="margin:0px 20px;">글 작성</a>
+
+{% endblock content %}
