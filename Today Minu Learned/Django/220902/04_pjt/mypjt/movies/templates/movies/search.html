@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="my-5 text-center" >
+  <h1 style="font-family: 'Noto Sans KR', sans-serif; font-weight: 900;">검색 결과</h1>
+</div>
+
+<div class="d-flex justify-content-around">
+  <a class="btn btn-outline-secondary " href="{% url 'movies:new' %}" role="button">등록</a>
+  <form action="{% url 'movies:search' %}" class="d-flex" role="search">
+    <input name="search_title" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-primary" type="submit">search</button>
+  </form>
+</div>
+<hr>
+{% if movies is False or movies|length == 0 %}
+  <p class="text-center">검색 결과가 없습니다.</p>
+  {% else %}
+  <div class="container text-center">
+    <p class="text-center">검색 결과 {{ movies|length }}개</p>
+    <div class="row">
+      {% for movie in movies %}
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-4">
+        <a class="text-decoration-none" href="{% url 'movies:detail' movie.pk %}">
+          <div class="card" style="box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;">
+            <img src="{{ movie.poster_url }}" class="card-img-top" alt="poster_img">
+            <div class="card-body text-decoration-none">
+              <h5 class="card-title text-decoration-none text-black" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 900;">{{ movie.title }}</h5>
+              <p class="card-text text-decoration-none text-secondary" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 400;">★ - {{ movie.score }}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+{% endif %}
+
+  
+  
+
+
+
+
+{% endblock content %}

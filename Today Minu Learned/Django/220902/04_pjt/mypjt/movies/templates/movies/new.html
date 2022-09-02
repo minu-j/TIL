@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="mt-5 text-center" >
+  <h1 style="font-family: 'Noto Sans KR', sans-serif; font-weight: 900;">등록</h1>
+</div>
+<hr>
+<form action="{% url 'movies:create' %}" method="POST">
+  {% csrf_token %}
+  <div class="m-5">
+    <div class="form-floating mb-3">
+      <input value="{% if title %}{{ title }}{% endif %}" name="title" type="text" class="form-control {% if title_is_True is False %}is-invalid{% endif %}" id="title" placeholder="title">
+      <label for="title">제목</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input value="{% if audience %}{{ audience }}{% endif %}" name="audience" type="number" class="form-control {% if audience_is_True is False %}is-invalid{% endif %}" id="audience" placeholder="audience">
+      <label for="audience">관객 수</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input value="{% if release_date %}{{ release_date }}{% endif %}" name="release_date" type="date" class="form-control {% if release_date_is_True is False %}is-invalid{% endif %}" id="release_date" placeholder="audience">
+      <label for="release_date">개봉 일자</label>
+    </div>
+    <div class="form-floating mb-3">
+      <select name="genre" class="form-select {% if genre_is_True is False %}is-invalid{% endif %}" id="genre">
+        <option {% if not genre %}selected{% endif %}selected>장르를 선택하세요.</option>
+        <option value="판타지" {% if genre == "판타지" %}selected{% endif %}>판타지</option>
+        <option value="액션" {% if genre == "액션" %}selected{% endif %}>액션</option>
+        <option value="코미디" {% if genre == "코미디" %}selected{% endif %}>코미디</option>
+        <option value="로맨스" {% if genre == "로맨스" %}selected{% endif %}>로맨스</option>
+        <option value="스릴러" {% if genre == "스릴러" %}selected{% endif %}>스릴러</option>
+        <option value="공포" {% if genre == "공포" %}selected{% endif %}>공포</option>
+      </select>
+      <label for="genre">장르</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input value="{% if score %}{{ score }}{% endif %}" name="score" type="number" step="0.1" class="form-control {% if score_is_True is False %}is-invalid{% endif %}" id="score" placeholder="score">
+      <label for="score">평점</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input value="{% if poster_url %}{{ poster_url }}{% endif %}" name="poster_url" type="url" class="form-control {% if poster_url_is_True is False %}is-invalid{% endif %}" id="poster_url" placeholder="poster_url">
+      <label for="poster_url">포스터 이미지 주소</label>
+    </div>
+    <div class="form-floating mb-3">
+      <textarea name="description" class="form-control {% if description_is_True is False %}is-invalid{% endif %}" placeholder="description" id="description" style="height: 100px">{% if description %}{{ description }}{% endif %}</textarea>
+      <label for="description">줄거리</label>
+    </div>
+    <input class="btn btn-primary" type="submit" value="저장">
+    <a class="btn btn-outline-secondary" href="{% url 'movies:index' %}" role="button">취소</a>
+  </div>
+</form>
+<hr>
+
+{% endblock content %}

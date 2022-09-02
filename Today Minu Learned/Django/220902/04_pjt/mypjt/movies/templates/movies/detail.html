@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="mt-5 text-center" >
+  <h1 style="font-family: 'Noto Sans KR', sans-serif; font-weight: 900;">상세정보</h1>
+</div>
+
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-10 col-md-3 m-4">
+      <img class="img-fluid mt-5" src="{{ movies.poster_url }}" alt="POSTER" style="box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;">
+    </div>
+    <div class="col-10 col-md-6 m-4">
+      <h1 class="my-5" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 900;">{{ movies.title }}</h1>
+      <div style="font-family: 'Noto Sans KR', sans-serif; font-weight: 400;">
+        <p>관객 수 : {{ movies.audience }}</p>
+        <p>개봉일 : {{ movies.release_date|date:'Y년 m월 d일' }}</p>
+        <p>장르 : {{ movies.genre }}</p>
+        <p>관객 평점 : {{ movies.score }}</p>
+        <p>{{ movies.description }}</p>
+      </div>
+    </div>
+</div>
+
+<hr>
+<dir class="mb-5">
+  <a class="btn btn-outline-secondary" href="{% url 'movies:edit' movies.pk %}" role="button">수정</a>
+  <form class="d-inline-block" action="{% url 'movies:delete' movies.pk %}">
+    <input class="btn btn-danger " type="submit" value="삭제">
+  </form>
+  <a class="btn btn-outline-secondary" href="{% url 'movies:index' %}" role="button">뒤로</a>
+</dir>
+
+
+{% endblock content %}
