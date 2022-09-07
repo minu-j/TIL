@@ -111,6 +111,55 @@ appname/template/appname/index.html 형태로 경로를 지정
   django는 template/ 뒤부터 경로를 읽기 때문
 
 
+### User Model 대체하기
+
+1. accounts/models.py
+
+  ```python
+  from django.contrib.auth.models import AbstractUser
+
+  # Create your models here.
+  class User(AbstractUser):
+      pass
+  ```
+
+2. settings.py
+
+  ```python
+  AUTH_USER_MODEL = 'accounts.User'
+  ```
+
+3. accounts/admin.py
+
+  ```python
+  from django.contrib.auth.admin import UserAdmin
+  from .models import User
+
+  # Register your models here.
+  admin.site.register(User, UserAdmin)
+  ```
+
+### UserCreationForm, UserChangeForm 커스텀
+
+accounts/forms.py
+  ```python
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth import get_user_model
+
+class CustomUserCreationFrom(UserCreationForm):
+
+    class Meta(UserCreationForm.Meta):
+        model = get_user_model()
+        fields = UserCreationForm.Meta.fields + ('email',)   # 회원가입시 추가적인 정보 수집
+
+
+class CustomUserChangeForm(UserChangeForm):
+
+    class Meta(UserChangeForm.Meta):
+        model = get_user_model()
+        fields = ('email', 'first_name', 'last_name',)   # 회원정보수정 출력 내용 제한
+  ```
+
 ## DB Migrations
 
 models.py에 변경사항 발생시 DB에 동기화 하는 작업
@@ -124,6 +173,15 @@ models.py에 변경사항 발생시 DB에 동기화 하는 작업
 ### DB에 migrate
 
 `$ python manage.py migrate`
+
+
+### database 초기화
+
+1. migrations파일 삭제(번호가 붙은 파일만 삭제)
+
+2. db.sqlite3 삭제
+
+3. migrations 진행
 
 
 ## ORM
@@ -173,3 +231,5 @@ CRUD (Create / Read / Update / Delete) :
     `save()`
  
  3. ` Article.objects.create(title='제목', content='내용')`
+
+
