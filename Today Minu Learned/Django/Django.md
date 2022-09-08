@@ -1,6 +1,8 @@
-$ pip install django==3.2.13
+### Django 설치
 
-### 가상환경 생성하기
+`$ pip install django==3.2.13`
+
+### 가상환경 생성
 
 `$ python -m venv venv`
 
@@ -139,27 +141,6 @@ appname/template/appname/index.html 형태로 경로를 지정
   admin.site.register(User, UserAdmin)
   ```
 
-### UserCreationForm, UserChangeForm 커스텀
-
-accounts/forms.py
-  ```python
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from django.contrib.auth import get_user_model
-
-class CustomUserCreationFrom(UserCreationForm):
-
-    class Meta(UserCreationForm.Meta):
-        model = get_user_model()
-        fields = UserCreationForm.Meta.fields + ('email',)   # 회원가입시 추가적인 정보 수집
-
-
-class CustomUserChangeForm(UserChangeForm):
-
-    class Meta(UserChangeForm.Meta):
-        model = get_user_model()
-        fields = ('email', 'first_name', 'last_name',)   # 회원정보수정 출력 내용 제한
-  ```
-
 ## DB Migrations
 
 models.py에 변경사항 발생시 DB에 동기화 하는 작업
@@ -184,52 +165,236 @@ models.py에 변경사항 발생시 DB에 동기화 하는 작업
 3. migrations 진행
 
 
-## ORM
-객체 지향 프로그래밍 언어를 사용하여 호환되지 않는 유형의 시스템 간에 데이터를 변환하는 프로그래밍 기술
+## CRUD
 
-### 사전준비 : Django shell
 
-설치
+### ModelForm 선언
 
-`$ pip install ipython`
-
-`$ pip install django-extensions`
-
-실행
-
-`python manage.py shell_plus`
-
+articles/forms.py
 ```python
-In [1]: Article.objects.all()
-Out[1]: <QuerySet []>
+from dataclasses import fields
+from django import forms
+from .models import Articles
+
+class ArticleForm(forms.ModelForm):
+
+    class Meta:
+        model = Articles
+        fields = '__all__'
 ```
 
-### QuerySet API
+### Allowed HTTP decorator
 
-database API 구문
+```python
+from django.views.decorators.http import require_http_methods, require_POST, require_safe
 
-`{Modeclass}.{Manager}.{QuerysetAPI}`
+@require_http_methods(['GET', 'POST'])
 
-QuerySet : 데이터베이스에게서 전달 받은 객체 목록(데이터의 모음)
+@require_POST
 
-CRUD (Create / Read / Update / Delete) : 
-대부분의 컴퓨터 소프트웨어가 가지는 기본적인 데이터 처리 기능 4가지
-
-### 데이터 객체를 생성하는 3가지 방법
-
-1. 
-   `article = Article()`
-
-   `article.title = '제목'  `
-   
-   ` article.content = '내용'  `
-
-   `article.save()`
-
-2. `article = Article(title = '제목', content = '내용')  `
-
-    `save()`
- 
- 3. ` Article.objects.create(title='제목', content='내용')`
+@require_safe
+```
 
 
+### CREATE
+
+```python
+@require_http_methods(['GET', 'POST'])
+def create(request):
+    if request.method == 'POST':
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            article = form.save()
+            return redirect('articles:detail', article.pk)
+    else:
+        form = ArticleForm
+    context = {
+        'form': form,
+    }
+    return render(request, 'articles/create.html', context)
+```
+
+### READ
+
+```python
+@require_safe
+def detail(request, pk):
+    article = Articles.objects.get(pk=pk)
+    context = {
+        'article': article,
+    }
+    return render(request, 'articles/detail.html', context)
+```
+
+### UPDATE
+
+```python
+@require_http_methods(['GET', 'POST'])
+def update(request, pk):
+    article = Articles.objects.get(pk=pk)
+    if request.method == "POST":
+        form = ArticleForm(request.POST, instance=article)
+        if form.is_valid():
+            form.save()
+            return redirect('articles:detail', article.pk)
+    else:
+        form = ArticleForm(instance=article)
+    context = {
+        'form': form,
+        'article': article,
+    }
+    return render(request, 'articles/update.html', context)
+```
+
+### DELETE
+
+```python
+# 데코레이터 사용(POST요청 외 접근 불가)
+@require_POST
+def delete(request, pk):
+    article = Articles.objects.get(pk=pk)
+    article.delete()
+    return redirect('articles:index')
+
+# if문 사용
+def delete(request, pk):
+    article = Articles.objects.get(pk=pk)
+    if request.method == "POST":
+        article.delete()
+        return redirect('articles:index')
+    return redirect('articles:detail', article.pk)
+```
+
+## Authentication
+```python
+from django.contrib.auth.forms import AuthenticationForm
+```
+
+### LOGIN
+
+```python
+from django.contrib.auth import login as auth_login
+
+def login(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, request.POST)
+        if form.is_valid():
+            auth_login(request, form.get_user())
+            return redirect('articles:index')
+    else:
+        form = AuthenticationForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'accounts/login.html', context)
+```
+### LOGIN
+```python
+def logout(request):
+    auth_logout(request)
+    return redirect('articles:index')
+```
+
+## User CRUD
+
+### UserCreationForm, UserChangeForm 커스텀
+
+accounts/forms.py
+  ```python
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth import get_user_model
+
+class CustomUserCreationFrom(UserCreationForm):
+
+    class Meta(UserCreationForm.Meta):
+        model = get_user_model()
+        fields = UserCreationForm.Meta.fields + ('email',)   # 회원가입시 추가적인 정보 수집
+
+
+class CustomUserChangeForm(UserChangeForm):
+
+    class Meta(UserChangeForm.Meta):
+        model = get_user_model()
+        fields = ('email', 'first_name', 'last_name',)   # 회원정보수정 출력 내용 제한
+  ```
+
+### SIGNUP
+
+```python
+from .forms import CustomUserCreationForm
+
+def signup(request):
+    if request.method == "POST":
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()   
+            auth_login(request, user)   # 회원가입 후 곧바로 로그인 진행
+            return redirect('articles:index')
+    else:
+        form = CustomUserCreationForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'accounts/signup.html', context)
+```
+
+
+### DELETE
+
+```python
+def delete(request):
+    request.user.delete()
+    auth_logout(request)   # 탈퇴 후 세션 삭제
+    return redirect('articles:index')
+```
+
+### UPDATE
+
+```python
+def update(request):
+    if request.method == "POST":
+        form = CustomUserChangeForm(request.POST, instance=request.user)
+        if form.is_valid:
+            form.save()
+            return redirect('articles:index')
+    else:
+        form = CustomUserChangeForm(instance=request.user)
+    context = {
+        'form': form,
+    }
+    return render(request, 'accounts/update.html', context)
+```
+
+### Change Password
+
+```python
+from django.contrib.auth.forms import PasswordChangeForm
+
+# 비밀번호 변경시 세션 유지하기
+from django.contrib.auth import update_session_auth_hash
+
+def change_password(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)   # 비밀번호 변경시 세션 유지하기
+            return redirect('articles:index')
+    else:
+        form = PasswordChangeForm(request.user)
+    context = {
+        'form': form,
+    }
+    return render(request, 'accounts/change_password.html', context)
+```
+
+
+### 로그인, 비로그인 상태 출력을 다르게 하기
+
+```django
+{% if request.user.is_authenticated %}
+<!-- 로그인 상태에서만 표시될 것들 -->
+{% else %}
+<!-- 비로그인 상태에서만 표시될 것들 -->
+{% endif %}
+```
