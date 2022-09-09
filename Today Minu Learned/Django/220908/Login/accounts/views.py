@@ -83,3 +83,4 @@ def change_password(request):
         'form': form,
     }
     return render(request, 'accounts/change_password.html', context)
+    
