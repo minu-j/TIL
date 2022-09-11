@@ -389,7 +389,7 @@ def change_password(request):
 ```
 
 
-### 로그인, 비로그인 상태 출력을 다르게 하기
+### 로그인, 비로그인 상태 출력을 다르게 하기 
 
 ```django
 {% if request.user.is_authenticated %}
