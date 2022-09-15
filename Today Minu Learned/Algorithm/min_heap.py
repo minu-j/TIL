@@ -40,4 +40,3 @@ def heap_pop():
                 child += 1
 
     return result
-

@@ -25,22 +25,35 @@ for tc in range(10):
     order = []
     inorder(1)
 
-    queue = []
+    stack = []
 
     for j in order:
-        queue.append(tree[0][j])
+        stack.append(tree[0][j])
+
+    print(tree)
+    print(order)
+    print(stack)
 
     nums = []
-    for k in queue:
+    for k in stack:
+        print(k, nums)
         if k == "+":
-            nums = [nums[0] + nums[1]]
+            B = nums.pop()
+            A = nums.pop()
+            nums.append(A + B)
         elif k == "-":
-            nums = [nums[0] - nums[1]]
+            B = nums.pop()
+            A = nums.pop()
+            nums.append(A - B)
         elif k == "*":
-            nums = [nums[0] * nums[1]]
+            B = nums.pop()
+            A = nums.pop()
+            nums.append(A * B)
         elif k == "/":
-            nums = [nums[0] / nums[1]]
+            B = nums.pop()
+            A = nums.pop()
+            nums.append(A / B)
         else:
             nums.append(int(k))
 
-    print(f'#{tc + 1} {nums[0]}')
+    print(f'#{tc + 1} {int(nums[-1])}')
