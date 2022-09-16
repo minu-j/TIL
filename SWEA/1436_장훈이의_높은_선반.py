@@ -22,5 +22,5 @@ for tc in range(int(input())):
     check = [0] * N
     powerset(0)
 
-    # 구해진 탑 높이 중 최소값에서 선반 높이를 뺀 값 출력
+    # 구해진 탑 높이 중 최솟값에서 선반 높이를 뺀 값 출력
     print(f'#{tc + 1} {min(tops) - B}')
