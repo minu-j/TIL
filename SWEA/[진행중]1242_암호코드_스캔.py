@@ -1,3 +1,7 @@
+import sys
+sys.stdin = open("input.txt", "r")
+
+
 def check_code(l, last_bit, depth):
     code = l[last_bit - (56 * depth) + 1:last_bit + 1:depth]
     if code[0:7] in code_table:
@@ -19,8 +23,10 @@ for tc in range(int(input())):
     bin_code_set = set()
 
     for _ in range(N):
-        hex_code = bin(int(input(), 16))[2:]
+        hex_code = bin(int(input().strip(), 16))[2:]
         hex_code_set.add('0' * len(hex_code) + hex_code)
+
+    print(hex_code_set)
 
     for line in hex_code_set:
 
