@@ -11,10 +11,7 @@ def move(m1):
     d = misang_dict[m1]['direction']
     misang_dict[m1]['position'][0] += move_direction[d][0]
     misang_dict[m1]['position'][1] += move_direction[d][1]
-    if (misang_dict[m1]['position'][0], misang_dict[m1]['position'][1]) not in visit:
-        visit.add((misang_dict[m1]['num'], misang_dict[m1]['position'][0], misang_dict[m1]['position'][1]))
-    else:
-        misang_dict[m1]['alive'] = False
+
 
 # 미생물이 가장자리에 도착했을 때 //2만큼을 죽이고, 방향을 반대로 바꾸는 함수
 def kill(m2):
@@ -32,15 +29,11 @@ for tc in range(int(input())):
     for misang_k in range(K):
         misang = list(map(int, input().split()))
 
-        misang_dict.append({'num': misang_k,
-                            'position': [misang[0], misang[1]],
+        misang_dict.append({'position': [misang[0], misang[1]],
                             'head': misang[2],
                             'direction': misang[3],
                             'is_alive': True})
     for T in range(M):
-
-        misang_dict = sorted(misang_dict, key=lambda x: x['head'], reverse=True)
-        visit = set()
 
         # 움직이기
         for i in range(len(misang_dict)):
@@ -49,21 +42,22 @@ for tc in range(int(input())):
             if misang_dict[i]['position'][0] == 0 or misang_dict[i]['position'][0] == N - 1 or misang_dict[i]['position'][1] == 0 or misang_dict[i]['position'][1] == N - 1:
                 kill(i)
 
-        # # 겹친애들 합치기
-        # for k in range(len(misang_dict)):
-        #     for l in range(k, len(misang_dict)):
-        #         if k != l and misang_dict[k]['position'] == misang_dict[l]['position']:
-        #             k_head = misang_dict[k]['head']
-        #             l_head = misang_dict[l]['head']
-        #             if k_head > l_head:
-        #                 misang_dict[k]['head'] += misang_dict[l]['head']
-        #                 misang_dict[l]['head'] = 0
-        #                 misang_dict[l]['is_alive'] = False
-        #
-        #             else:
-        #                 misang_dict[l]['head'] += misang_dict[k]['head']
-        #                 misang_dict[k]['head'] = 0
-        #                 misang_dict[k]['is_alive'] = False
+        # 겹친애들 합치기
+        for k in range(len(misang_dict)):
+            for l in range(k, len(misang_dict)):
+                if k != l and misang_dict[k]['position'] == misang_dict[l]['position']:
+                    k_head = misang_dict[k]['head']
+                    l_head = misang_dict[l]['head']
+                    if k_head > l_head:
+                        misang_dict[k]['head'] += misang_dict[l]['head']
+                        misang_dict[l]['head'] = 0
+                        misang_dict[l]['is_alive'] = False
+                        misang_dict[l]['position'] = [0, 0]
+                    else:
+                        misang_dict[l]['head'] += misang_dict[k]['head']
+                        misang_dict[k]['head'] = 0
+                        misang_dict[k]['is_alive'] = False
+                        misang_dict[k]['position'] = [0, 0]
 
         # 죽은애들은 없애기
         for o in range(len(misang_dict)):
