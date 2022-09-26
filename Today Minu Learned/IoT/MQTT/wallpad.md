@@ -231,7 +231,7 @@ client.connect(host=url, port=port)
  
  # 메세지 입력
 client.loop_start()
-client.publish(topic, input(), 0)
+client.publish(topic, bytearray.fromhex('aa5530bc00360001000011001a00000000004e0d0d'), 0)   # 보일러 전원 ON 패킷
 client.loop_stop()
 
 # 연결 종료
