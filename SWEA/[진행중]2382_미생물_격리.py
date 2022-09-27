@@ -20,10 +20,6 @@ for tc in range(int(input())):
             micro[0] += move_direction[micro[3]][0]
             micro[1] += move_direction[micro[3]][1]
 
-
-
-
-
         pprint.pprint(micro_list)
 
     # print(f'#{tc + 1} {ans}')
