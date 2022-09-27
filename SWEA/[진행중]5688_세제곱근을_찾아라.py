@@ -29,3 +29,4 @@ for tc in range(int(input())):
             ans += idx * count[idx]
 
     print(f'#{tc + 1} {ans}')
+    
