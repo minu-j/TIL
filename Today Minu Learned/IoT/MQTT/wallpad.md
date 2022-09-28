@@ -238,3 +238,8 @@ client.loop_stop()
 client.disconnect()
 ```
 
+# if문으로 제어해보기
+
+
+# 텔레그램 보내기
+
