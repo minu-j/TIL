@@ -1,3 +1,5 @@
+# dfs => 시간초과
+#
 # def move(y, x, count):
 #     global ans
 #
@@ -26,15 +28,17 @@
 #     move(0, 0, matrix[0][0])
 #
 #     print(f'Problem {tc}: {ans}')
-
+#
+################################################################
 
 # 다익스트라를 활용한 사방탐색
+
 def move():
     dist = [[9999999999999999] * N for _ in range(N)]   # 맵이 2차원이니깐 dist도 2차원
     dist[0][0] = matrix[0][0]                           # dist 좌표도 두개
     visited = [[False] * N for _ in range(N)]           # visited도 2차원
 
-    for _ in range(N * N):
+    for _ in range(N * N):   # 일반적인 그래프와 다르게, 2차원 배열을 순회해야 하므로 N * N번 반복해야 함.
         min_idx = (-1, -1)                              # index 좌표도 두개
         min_value = 9999999999999999
 
