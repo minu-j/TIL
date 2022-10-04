@@ -15,7 +15,7 @@ CREATE TABLE users (
   balance INTEGER NOT NULL
   );
 
--- 조회
+-- READ
   -- Select
     SELECT first_name, age FROM users; -- 이름과 나이 조회
 
@@ -115,13 +115,12 @@ CREATE TABLE users (
       
        -- AS 키워드 : 컬럼 이름을 임시적으로 변경하여 조회할 수 있음
 
--- CRUD
-  -- Create
-    -- INSERT : 새 행을 테이블에 삽입
-    INSERT INTO
-    
-    -- UPDATE : 기존 행의 데이터를 업데이트
-    UPDATE SET / WHERE
+-- Create
+  -- INSERT : 새 행을 테이블에 삽입
+  INSERT INTO
+  
+  -- UPDATE : 기존 행의 데이터를 업데이트
+  UPDATE SET / WHERE
 
-    -- DELETE : 테이블에서 행을 제거
-    DELETE FROM / WHERE
+  -- DELETE : 테이블에서 행을 제거
+  DELETE FROM / WHERE
