@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'articles:create' %}" method="GET">글 작성</a>
+{% for article in articles %}
+  <h3>할 일: {{ article.title }}</h3>
+  <p>작성자: {{ article.user }}</p>
+  <p>완료여부: {{ article.completed }}</p>
+  <hr>
+{% endfor %}
+
+{% endblock content %}

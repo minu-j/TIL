@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="m-4">
+  <h1>새 투표 만들기</h1>
+</div>
+<form action="{% url 'votes:create' %}" method="POST">
+  {% csrf_token %}
+  <div class="m-4">
+    <div class="m-5">
+      {{ form.title }}
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          {{ form.issue_a }}
+        </div>
+        <div class="col text-center">
+          <p>VS</p>
+        </div>
+        <div class="col">
+          {{ form.issue_b }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">제출</button>
+</form>
+{% endblock content %}

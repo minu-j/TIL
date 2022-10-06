@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">A</th>
+      <th scope="col">B</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for vote in votes %}
+    
+    <tr>
+      <th scope="row">{{ vote.pk }}</th>
+      <td>{{ vote.title }}</td>
+      <td>{{ vote.issue_a }}</td>
+      <td>{{ vote.issue_b }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}

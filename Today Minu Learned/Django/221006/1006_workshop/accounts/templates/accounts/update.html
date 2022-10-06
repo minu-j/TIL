@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'articles:index' %}">뒤로가기</a>
+  <h1>회원정보수정</h1>
+  <form action="{% url 'accounts:update' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="수정">
+  </form>
+  <br>
+  <hr>
+  <br>
+  <a href="{% url 'accounts:change_password' %}">비밀번호 변경</a>
+  <form action="{% url 'accounts:delete' %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="회원탈퇴">
+  </form>
+{% endblock content %}
