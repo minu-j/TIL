@@ -3,14 +3,42 @@
 {% block content %}
   <a href="{% url 'articles:index' %}">뒤로가기</a>
   <h1>{{ article.title }}</h1>
-  <p>작성: {{article.created_at }}</p>
-  <p>수정: {{article.updated_at }}</p>
+  <p>작성자: {{ article.user }}</p>
+  <p>작성: {{ article.created_at }}</p>
+  <p>수정: {{ article.updated_at }}</p>
   <hr>
   <p>내용: {{ article.content }}</p>
   <hr>
+  {% if request.user == article.user %}
   <a href="{% url 'articles:update' article.pk %}">수정</a>
-  <form action="{% url 'articles:delete' article.pk %}">
+  <form action="{% url 'articles:delete' article.pk %}" method="POST">
+    {% csrf_token %}
     <input type="submit" value='삭제'>
   </form>
-
+  <hr>
+  {% endif %}
+  {% if request.user.is_authenticated %}
+  <form action="{% url 'articles:comments_create' article.pk %}" method="POST">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <input type="submit" value="작성">
+  </form>
+  {% else %}
+    <p>댓글을 작성하려면 <a href="{% url 'accounts:login' %}">로그인</a>하세요.</p>
+  {% endif %}
+  <h4>댓글목록</h4>
+  <p>댓글 - {{ comments|length }}개</p>
+  <ul>
+    {% for comment in comments %}
+      <li><b>[{{ comment.user }}]</b> {{ comment.content }}</li>
+      {% if request.user == comment.user %}
+      <form action="{% url 'articles:comments_delete' article.pk comment.pk %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="댓글 삭제">
+      </form>
+      {% endif %}
+    {% empty %}
+      <p>아직 댓글이 없습니다.</p>
+    {% endfor %}
+  </ul>
 {% endblock content %}
