@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container m-4">
+    <div class="row">
+      <div class="my-3 col-10 col-sm">
+        <a href="{% url 'movies:create' %}" class="btn btn-primary">영화 등록</a>
+      </div>
+      <div class="my-3 col-10 col-sm-8 col-md-4">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-dark" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    {% for movie in movies %}
+      <div>
+        <a href="{% url 'movies:detail' movie.pk %}">
+          <h4>{{ movie.title }}</h4>
+          </a>
+        <p>{{ movie.score }}</p>
+      </div>
+    <hr>
+    {% empty %}
+      <p>입력된 영화가 아직 없습니다...</p>
+    {% endfor %}
+  </div>
+{% endblock content %}

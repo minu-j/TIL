@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <a href="{% url 'movies:index' %}" class="btn btn-secondary">목록</a>
+  <img src="{{ movie.poster_url }}" alt="Poster">
+  <h1 class="display-1, text-center">{{ movie.title }}</h1>
+  <p>Audience: {{ movie.audience }}</p>
+  <p>Release date: {{ movie.release_date }}</p>
+  <p>Genre: {{ movie.genre }}</p>
+  <p>Score: {{ movie.score }}</p>
+  <p>Description: {{ movie.description }}</p>
+  <hr>
+  <a class="btn btn-primary" href="{% url 'movies:update' movie.pk %}" role="button">수정</a>
+  <form action="{% url 'movies:delete' movie.pk %}" method="POST">
+    {% csrf_token %}
+    <input class="btn btn-danger" type="submit" value="삭제">
+  </form>
+  <a href="{% url 'movies:index' %}" class="btn btn-secondary">목록</a>
+{% endblock content %}

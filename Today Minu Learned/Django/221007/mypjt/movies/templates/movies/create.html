@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <a href="{% url 'movies:index' %}" class="btn btn-secondary">목록</a>
+  <form action="{% url 'movies:create' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-primary" type="submit" value="제출">
+  </form>
+{% endblock content %}
