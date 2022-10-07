@@ -1,5 +1,2 @@
-i = int(input())
-while i > 0:
-    a, b = map(int, input().split())
-    print(a + b)
-    i -= 1
+for tc in range(int(input())):
+    print(sum(map(int, input().split())))
