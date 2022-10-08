@@ -268,3 +268,6 @@ pyvenv.cfg
 pip-selfcheck.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python,django,venv
+
+# no secrets.json files
+*secrets.json
