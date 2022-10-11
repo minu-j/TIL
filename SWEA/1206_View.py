@@ -22,6 +22,6 @@ for i in range(10):
                     max_num = buildings[j + k]  # max 변수에 할당
         
         if max < case[j]:           # j번째 빌딩이 max_num 보다 작다면
-            ans += (case[j] - max_num  # ans 변수에 층수의 차이만큼을 가산
+            ans += (case[j] - max_num)  # ans 변수에 층수의 차이만큼을 가산
 
     print(f'#{i + 1} {ans}')
