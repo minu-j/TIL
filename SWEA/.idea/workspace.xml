@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3f43126-5309-45ad-b26e-114b6288b8ee" name="Default Changelist" comment="1013 til">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5648_원자_소멸_시뮬레이션.py" beforeDir="false" afterPath="$PROJECT_DIR$/5648_원자_소멸_시뮬레이션.py" afterDir="false" />
-    </list>
+    <list default="true" id="b3f43126-5309-45ad-b26e-114b6288b8ee" name="Default Changelist" comment="1013 til" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -179,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665647623881</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1013 til">
+      <created>1665651032618</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665651032618</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
