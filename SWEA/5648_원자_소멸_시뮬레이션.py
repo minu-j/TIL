@@ -108,5 +108,5 @@ for tc in range(int(input())):
             energy += atom[a][4]
             not_crush_atom.remove(a)
         crush_atoms = set()
-
+        
         print(f'#{tc + 1} {energy}')
