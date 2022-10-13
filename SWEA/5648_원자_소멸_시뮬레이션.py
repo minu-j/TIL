@@ -8,7 +8,7 @@ for tc in range(int(input())):
     crush = []
 
     for num1, x1, y1, d1, e1 in atom:
-        t = 0   # 부딪칠때까지 걸리는 시간
+        t = 0  # 부딪칠때까지 걸리는 시간
 
         if d1 == 0 or d1 == 1 or d1 == 3:
 
@@ -79,24 +79,24 @@ for tc in range(int(input())):
 
     # 충돌이 있다면?
     else:
-        not_crush_atom = list(range(N))     # 아직 충돌 안해서 살아있는 원자
-        energy = 0                          # 에너지 합
-        crush.sort()                        # 정렬한 충돌 케이스들
-        before_t = crush[0][0]              # 첫번째 비교용 변수
-        crush_atoms = set()                 # 충돌한 원자들 모으기
+        not_crush_atom = list(range(N))  # 아직 충돌 안해서 살아있는 원자
+        energy = 0  # 에너지 합
+        crush.sort()  # 정렬한 충돌 케이스들
+        before_t = crush[0][0]  # 첫번째 비교용 변수
+        crush_atoms = set()  # 충돌한 원자들 모으기
 
         # 충돌 케이스를 돌면서, 같은 시간에 충돌한 애들을 한 셋에 모아서 충돌 안한 원자 리스트에서 삭제하고 에너지 더하기
         for t, atom1, atom2 in crush:
-            if t == before_t:   # 이전 충돌과 동일 시간이면서,
-                if atom1 in not_crush_atom and atom2 in not_crush_atom:   # 원자 둘다 살아있다면
-                    crush_atoms.add(atom1)      # 충돌한 원자 셋에 모으기
+            if t == before_t:  # 이전 충돌과 동일 시간이면서,
+                if atom1 in not_crush_atom and atom2 in not_crush_atom:  # 원자 둘다 살아있다면
+                    crush_atoms.add(atom1)  # 충돌한 원자 셋에 모으기
                     crush_atoms.add(atom2)
-            else:       # 시간이 다르다면
-                for a in crush_atoms:   # 충돌한 원자들 정리하고 에너지 값 더하기
+            else:  # 시간이 다르다면
+                for a in crush_atoms:  # 충돌한 원자들 정리하고 에너지 값 더하기
                     energy += atom[a][4]
                     not_crush_atom.remove(a)
                 crush_atoms = set()
-                before_t = t   # 시간도 조정하고
+                before_t = t  # 시간도 조정하고
 
                 # 다시 충돌 셋 모으기
                 if atom1 in not_crush_atom and atom2 in not_crush_atom:
@@ -108,5 +108,5 @@ for tc in range(int(input())):
             energy += atom[a][4]
             not_crush_atom.remove(a)
         crush_atoms = set()
-        
+
         print(f'#{tc + 1} {energy}')
