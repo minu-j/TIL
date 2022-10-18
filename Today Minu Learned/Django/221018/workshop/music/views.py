@@ -31,10 +31,10 @@ def artist_detail(request, artist_pk):
 
 @api_view(['POST', ])
 def music_create(request, artist_pk):
-    music = get_object_or_404(Artist, pk=artist_pk)
+    artist = get_object_or_404(Artist, pk=artist_pk)
     serializer = MusicSerializer(data=request.data)
     if serializer.is_valid(raise_exception=True):
-        serializer.save(music=music)
+        serializer.save(artist=artist)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
