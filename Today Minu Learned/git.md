@@ -122,5 +122,9 @@ $ git push origin <branch name>
 
 ```
 
+## Fork
 
+```bash
 
+```
+업스트링 등록 > git pull upstring?

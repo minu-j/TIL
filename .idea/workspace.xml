@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="14bbe9eb-e0df-4131-aa3f-d794db99e8e9" name="Default Changelist" comment="til">
-      <change afterPath="$PROJECT_DIR$/BAEKJOON/3000_킹, 퀸, 룩, 비숍, 나이트, 폰.py" afterDir="false" />
+    <list default="true" id="14bbe9eb-e0df-4131-aa3f-d794db99e8e9" name="Default Changelist" comment="1021 til">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BAEKJOON/4673_셀프_넘버.py" beforeDir="false" afterPath="$PROJECT_DIR$/BAEKJOON/4673_셀프_넘버.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGRAMMERS/숫자_문자열과_영단어.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGRAMMERS/Python/숫자_문자열과_영단어.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664717758589</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="1021 til">
+      <created>1666315320811</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666315320811</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,6 +260,7 @@
     <MESSAGE value="0921 til" />
     <MESSAGE value="0922 til" />
     <MESSAGE value="til" />
-    <option name="LAST_COMMIT_MESSAGE" value="til" />
+    <MESSAGE value="1021 til" />
+    <option name="LAST_COMMIT_MESSAGE" value="1021 til" />
   </component>
 </project>
