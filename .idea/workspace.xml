@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="14bbe9eb-e0df-4131-aa3f-d794db99e8e9" name="Default Changelist" comment="til" />
+    <list default="true" id="14bbe9eb-e0df-4131-aa3f-d794db99e8e9" name="Default Changelist" comment="til">
+      <change afterPath="$PROJECT_DIR$/BAEKJOON/3000_킹, 퀸, 룩, 비숍, 나이트, 폰.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BAEKJOON/4673_셀프_넘버.py" beforeDir="false" afterPath="$PROJECT_DIR$/BAEKJOON/4673_셀프_넘버.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGRAMMERS/숫자_문자열과_영단어.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGRAMMERS/Python/숫자_문자열과_영단어.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,12 +42,13 @@
       <recent name="C:\Users\Minu\Desktop\TIL\Today Minu Learned\Algorithm\220824_Queue" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\multicampus\Desktop\TIL\PROGRAMMERS\Python" />
       <recent name="C:\Users\Minu\Desktop\TIL\SWEA\220810" />
       <recent name="C:\Users\Minu\Desktop\TIL\Today Minu Learned\Algorithm\220808" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.5189_전자카트">
-    <configuration name="1240_단순_2진_암호코드" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.4673_셀프_넘버">
+    <configuration name="3000_킹, 퀸, 룩, 비숍, 나이트, 폰" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TIL" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -50,11 +56,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SWEA" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BAEKJOON" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SWEA/1240_단순_2진_암호코드.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BAEKJOON/3000_킹, 퀸, 룩, 비숍, 나이트, 폰.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="4673_셀프_넘버" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TIL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BAEKJOON" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BAEKJOON/4673_셀프_넘버.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -105,27 +132,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="practice01" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="TIL" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Today Minu Learned/Algorithm/220919" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Today Minu Learned/Algorithm/220919/practice01.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="practice02" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TIL" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -149,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.4673_셀프_넘버" />
+        <item itemvalue="Python.3000_킹, 퀸, 룩, 비숍, 나이트, 폰" />
         <item itemvalue="Python.5189_전자카트" />
         <item itemvalue="Python.5188_최소_합" />
         <item itemvalue="Python.practice02" />
-        <item itemvalue="Python.practice01" />
-        <item itemvalue="Python.1240_단순_2진_암호코드" />
       </list>
     </recent_temporary>
   </component>
