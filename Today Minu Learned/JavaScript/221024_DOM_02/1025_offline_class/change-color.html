@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>색상변환</h2>
+    <label for="change-color">원하는 색상을 입력 :</label>
+    <input type="text" id="change-color">
+
+    <script>
+        const h2Tag = document.querySelector('h2')
+        const inputTag = document.querySelector('#change-color')
+
+        const changeColor = function (event) {
+            console.log(h2Tag)
+            console.log(h2Tag.style)
+            console.log(event)
+            console.log(event.target)
+            console.log(event.target.value)
+            h2Tag.style.color = event.target.value
+        }
+
+        inputTag.addEventListener('input', changeColor)
+    </script>
+</body>
+</html>

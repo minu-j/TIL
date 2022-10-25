@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn {
+            color: red;
+            background: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>요소 추가 방법</h2>
+    <ul class="parent">
+        <li class="one">하나</li>
+        <li class="two">둘</li>
+        <li class="three">셋</li>
+        <br>
+        <button>색상반전</button>
+    </ul>
+
+    <script>
+        const ul = document.querySelector('ul')
+        const li0 = document.createElement('li')
+        li0.innerText = '사실 내가 처음'
+        ul.prepend(li0)
+
+        const liLast1 = document.createElement('li')
+        liLast1.innerText = '마지막에 붙음111'
+        const liLast2 = document.createElement('li')
+        liLast2.innerText = '마지막에 붙음222'
+
+
+
+        const li2 = document.querySelector('.two')
+        li2.after(liLast2)
+    </script>
+</body>
+</html>
