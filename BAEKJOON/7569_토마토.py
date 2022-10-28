@@ -1,3 +1,4 @@
+from collections import deque
 import sys
 input = sys.stdin.readline
 
@@ -9,7 +10,7 @@ dz = [0, 0, 0, 0, 1, -1]
 
 M, N, H = map(int, input().split())
 
-red = set()
+yellow = deque()
 green = set()
 
 for h in range(H):
@@ -17,26 +18,26 @@ for h in range(H):
         tomatoes = list(map(int, input().split()))
         for m in range(M):
             if tomatoes[m] == 1:
-                red.add((h, n, m))
+                yellow.append((h, n, m))
             elif tomatoes[m] == 0:
                 green.add((h, n, m))
 
 day = 0
-yellow = set()
 ans = 0
 visited = set()
 
 while True:
-    for h, n, m in red:
-        if (h, n, m) not in visited:
-            visited.add((h, n, m))
+    for t in range(len(yellow)):
+        now = yellow.popleft()
+        if now not in visited:
+            visited.add(now)
             for d in range(6):
-                x = m + dx[d]
-                y = n + dy[d]
-                z = h + dz[d]
+                x = now[2] + dx[d]
+                y = now[1] + dy[d]
+                z = now[0] + dz[d]
                 if 0 <= z < H and 0 <= y < N and 0 <= x < M:
                     if (z, y, x) in green:
-                        yellow.add((z, y, x))
+                        yellow.append((z, y, x))
                         green.remove((z, y, x))
 
     if green and not yellow:
@@ -46,11 +47,5 @@ while True:
     elif not green and not yellow:
         print(day)
         exit(0)
-
-    else:
-        red |= yellow
-        # for y in yellow:
-        #     red.add(y)
-        yellow = set()
 
     day += 1
