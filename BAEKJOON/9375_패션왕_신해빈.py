@@ -6,6 +6,8 @@ for tc in range(int(input())):
         if j in clothes:
             clothes[j] += 1
         else:
-            clothes[j] = 1
-    for l in range(1, len(clothes) + 1):
-        for c in range(l):
+            clothes[j] = 2
+    ans = 1
+    for _ in clothes.values():
+        ans *= _
+    print(ans - 1)
