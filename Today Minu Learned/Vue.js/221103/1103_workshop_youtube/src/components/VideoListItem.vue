@@ -4,7 +4,7 @@
       <div class="video-list">
         <img :src="item['snippet']['thumbnails']['default']['url']" alt="thumbnails">
         <div class="text-box">
-          <p @click="selectVideo(item['id']['videoId'])" class="title">{{ item['snippet']['title'] }}</p>
+          <p @click="selectVideo(item['id']['videoId'], item['snippet']['thumbnails']['high']['url'])" class="title">{{ item['snippet']['title'] }}</p>
           <p class="description">{{ item['snippet']['description'] }}</p>
           <p class="channelTitle">{{ item['snippet']['channelTitle'] }}</p>
         </div>
@@ -20,8 +20,9 @@ export default {
     items: Array,
   },
   methods: {
-    selectVideo: function (id) {
-      this.$emit('video-id', id)
+    selectVideo: function (id, high) {
+      this.$emit('video-id', id, high)
+      console.log(high)
     }
   }
 }

@@ -1,13 +1,17 @@
 <template>
-  <div id="app">
+  <div class="background" id="app">
     <div class="main-box">
       <div>
-        <img class="click-able" @click="home" alt="Vue logo" src="./assets/logo.png">
+        <div @click="theme">
+          <img v-if="!dark" class="click-able logo" alt="Vue logo" src="./assets/logo.png">
+          <img v-if="dark" class="click-able logo" alt="Vue logo" src="./assets/logo-dark.png">
+        </div>
         <h1 class="click-able" @click="home">VueTube</h1>
       </div>
       <div class="serch-box-large">
-        <the-serch-bar @search-keyword="getSearch"/>
+        <the-serch-bar :dark="dark" @search-keyword="getSearch"/>
       </div>
+
     </div>
     <div>
       <div>
@@ -20,6 +24,7 @@
         </div>
       </div>
     </div>
+    <img class="video-image" :src="videoImage" alt="">
   </div>
 </template>
 
@@ -35,10 +40,11 @@ export default {
   components: {
     TheSerchBar,
     VideoDetail,
-    VideoList
+    VideoList,
   },
   data: function () {
     return {
+      dark: false,
       search: '',
       searchUrl: 'https://www.googleapis.com/youtube/v3/search',
       key: '',
@@ -46,6 +52,7 @@ export default {
       type: 'video',
       items: [],
       videoId: '',
+      videoImage: '',
     }
   },
   methods: {
@@ -56,12 +63,25 @@ export default {
           this.items = response.data.items
         })
     },
-    playVideo: function (id) {
+    playVideo: function (id, high) {
       this.videoId = id
+      this.videoImage = high
     },
     home: function () {
       this.search = ''
       this.videoId = ''
+    },
+    theme: function () {
+      if (this.dark) {
+        document.body.classList.remove('dark')
+        document.body.classList.add('light')
+      }
+      else {
+        document.body.classList.add('dark')
+        document.body.classList.remove('light')
+
+      }
+      this.dark = !this.dark
     }
   }
 }
@@ -73,8 +93,17 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  padding-top: 60px;
+}
+.light {
   color: #2c3e50;
-  margin-top: 60px;
+}
+.dark {
+  background-color: #292929;
+  color: whitesmoke;
+}
+.logo {
+  width: 100px;
 }
 .click-able:hover {
   cursor: pointer;
@@ -89,5 +118,17 @@ export default {
 }
 .video-detail {
   margin-bottom: 30px;
+}
+body {
+  margin: 0px;
+}
+.video-image {
+  position:absolute;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+  opacity: 20%;
+
 }
 </style>

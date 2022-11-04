@@ -15,6 +15,9 @@ export default {
     searchKeyword: '',
   }
  },
+ props: {
+  dark: Boolean,
+ },
  methods: {
   search: function () {
     this.$emit('search-keyword', this.searchKeyword)
@@ -28,6 +31,7 @@ export default {
 .serch-box {
   display: flex;
   border:solid #48d98b 1px;
+  background: white;
 }
 button {
   width: 60px;

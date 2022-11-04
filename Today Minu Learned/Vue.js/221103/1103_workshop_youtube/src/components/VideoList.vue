@@ -13,8 +13,8 @@ export default {
     items: Array,
   },
   methods: {
-    selectVideo: function (id) {
-      this.$emit('video-id', id)
+    selectVideo: function (id, high) {
+      this.$emit('video-id', id, high)
     }
   }
 }
