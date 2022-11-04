@@ -2,8 +2,10 @@
   <div id="app">
     <the-lunch
       @pick-menu="pickMenu"/>
+    <p>{{ menu }}</p>
     <hr>
-    <the-lotto/>
+    <the-lotto v-if="this.menu" :menu="menu" @get-numbers="getNumbers"/>
+    <p v-if="this.numbers">{{ numbers.sort((a, b) => a - b) }}</p>
   </div>
 </template>
 
@@ -18,9 +20,29 @@ export default {
     TheLunch,
     TheLotto
   },
+  data: function () {
+    return {
+      menu: '',
+      numbers: null,
+    }
+  },
   methods: {
     pickMenu: function (menu) {
-      console.log(menu)
+      this.menu = menu
+    },
+    getNumbers: function (menu) {
+      this.numbers = [0, 0, 0, 0, 0, 0]
+      for (let i = 0; i < this.numbers.length; i++) {
+        while (true) {
+          const num = _.random(1, 46)
+          if (num !== this.numbers[i]) {
+            this.numbers[i] = num
+            break
+          }
+        }
+
+      }
+      console.log(this.numbers)
     }
   }
 }

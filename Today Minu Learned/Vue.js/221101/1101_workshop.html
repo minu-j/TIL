@@ -23,10 +23,14 @@
       data: {
         catSrc: false,
         url: 'https://api.thecatapi.com/v1/images/search',
+        key: '',
+        part: '',
+        type: '',
+        q: '',
       },
       methods: {
         getCat: function () {
-          axios.get(this.url)
+          axios.get(this.url + `&key=${key}` + `&part=${part}` + `&type=${type}` + `&q=${q}`)
             .then(response => {
               this.catSrc = response.data[0].url
             })
