@@ -1,0 +1,1 @@
+print(sum(map(lambda x: pow(x, 2), map(int, input().split()))) % 10)

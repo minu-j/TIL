@@ -1,0 +1,1 @@
+print(max(map(int, ''.join(list(reversed(input()))).split())))
