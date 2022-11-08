@@ -1,6 +1,6 @@
-.font {
-  font-family: 'HBIOS-SYS';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,6 +15,7 @@
 
 body {
   text-align: center;
+  font-family: 'S-CoreDream-3Light';
 }
 
 header {
@@ -33,6 +34,7 @@ header {
   margin-right: 5px;
   border-radius: 10px;
   padding-inline: 10px;
+  font-family: 'S-CoreDream-3Light';
 }
 
 .search-input:focus {
@@ -49,6 +51,7 @@ header {
   background: rgb(20, 177, 111);
   padding: 0px;
   border-radius: 10px;
+  font-family: 'S-CoreDream-3Light';
 }
 .search-button:hover {
   background: rgb(22, 129, 85);
@@ -87,7 +90,7 @@ header {
 }
 
 .album-title {
-  font-weight: bold;
+  font-weight: 600;
   margin-top: 5px;
   margin-bottom: 10px;
 }
