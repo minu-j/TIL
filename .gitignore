@@ -405,3 +405,8 @@ fabric.properties
 .idea/**/azureSettings.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/pycharm
+
+#API Key
+.env.local
+.env.*.local
+key.js
