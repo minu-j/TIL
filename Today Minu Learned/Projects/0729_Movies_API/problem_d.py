@@ -6,7 +6,7 @@ def recommendation(title):
     pass 
     # 여기에 코드를 작성합니다. 
 
-    URL_1 = f'https://api.themoviedb.org/3/search/movie?api_key=51790401a4babecb78bc0eca24db117c&language=ko-KR&query={title}&page=1&include_adult=false'
+    URL_1 = f'https://api.themoviedb.org/3/search/movie?api_key={api_key}&language=ko-KR&query={title}&page=1&include_adult=false'
 
     movie_id = ''
 
@@ -16,7 +16,7 @@ def recommendation(title):
     else:
         return None
 
-    URL_2 = f'https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key=51790401a4babecb78bc0eca24db117c&language=ko-KR&page=1'
+    URL_2 = f'https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key={api_key}&language=ko-KR&page=1'
 
     recommend_movie = requests.get(URL_2).json()
     recommends = []

@@ -13,7 +13,7 @@ def rank():
     
     target_date = input('날짜 정보를 입력하세요(YYYYMMDD) : ')
 
-    URL = f'http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt={target_date}'
+    URL = f'http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key={api_key}&targetDt={target_date}'
 
     response = requests.get(URL).json()
     
