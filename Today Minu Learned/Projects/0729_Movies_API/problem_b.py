@@ -6,7 +6,7 @@ def vote_average_movies():
     pass 
     # 여기에 코드를 작성합니다.  
 
-    URL = 'https://api.themoviedb.org/3/movie/popular?api_key=51790401a4babecb78bc0eca24db117c&language=ko-KR&page=1'
+    URL = f'https://api.themoviedb.org/3/movie/popular?api_key={api_key}&language=ko-KR&page=1'
 
     response = requests.get(URL).json()
     movies_list = []

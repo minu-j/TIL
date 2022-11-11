@@ -6,7 +6,7 @@ def credits(title):
     pass 
     # 여기에 코드를 작성합니다. 
     
-    URL_1 = f'https://api.themoviedb.org/3/search/movie?api_key=51790401a4babecb78bc0eca24db117c&language=ko-KR&query={title}&page=1&include_adult=false'
+    URL_1 = f'https://api.themoviedb.org/3/search/movie?api_key={api_key}}&language=ko-KR&query={title}&page=1&include_adult=false'
 
     response = requests.get(URL_1).json()
     if len(response["results"]) > 0:
@@ -14,7 +14,7 @@ def credits(title):
     else:
         return None
         
-    URL_2 = f'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=51790401a4babecb78bc0eca24db117c&language=ko-KR'
+    URL_2 = f'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key={api_key}}&language=ko-KR'
 
     cast = []
     crew = []
