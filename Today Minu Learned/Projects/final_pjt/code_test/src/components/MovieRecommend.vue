@@ -13,7 +13,7 @@
             <div class="col-6 col-md-3 movie-recommend-card">
               <div class="movie-recommend-card-item">
                 <span class="movie-recommend-card-title">{{ movie.title }}</span>
-                <img class="image-thumbnail" :src="`${movie.thumbnail}`">
+                <img class="image-thumbnail" :src="`${ movie.thumbnail }`">
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@ export default {
 }
 
 .movie-recommend-card {
-  height: 250px;
+  height: 240px;
 }
 
 .movie-recommend-card-item {
@@ -138,7 +138,7 @@ export default {
   justify-content: center;
 }
 .movie-recommend-card-item:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .movie-recommend-card-title {
@@ -147,7 +147,7 @@ export default {
   font-size: 24px;
   font-weight: bold;
   position: absolute;
-  top: 80%;
+  top: 70%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -165,39 +165,37 @@ export default {
 .carousel-inner .carousel-item.active,
 .carousel-inner .carousel-item-next,
 .carousel-inner .carousel-item-prev {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
-    .carousel-inner .carousel-item-end.active,
-    .carousel-inner .carousel-item-next {
-      transform: translateX(50%);
-    }
-    .carousel-inner .carousel-item-start.active, 
-    .carousel-inner .carousel-item-prev {
-      transform: translateX(-50%);
-    }
+  .carousel-inner .carousel-item-end.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(50%);
+  }
+  .carousel-inner .carousel-item-start.active, 
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-50%);
+  }
 }
-
 .carousel-inner .carousel-item-end,
 .carousel-inner .carousel-item-start{ 
-  transform: translateX(0);
+transform: translateX(0);
 }
 
 @media (min-width: 768px) {
-    .carousel-inner .carousel-item-end.active,
-    .carousel-inner .carousel-item-next {
-      transform: translateX(25%);
-    }
-    .carousel-inner .carousel-item-start.active, 
-    .carousel-inner .carousel-item-prev {
-      transform: translateX(-25%);
-    }
+  .carousel-inner .carousel-item-end.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(25%);
+  }
+  .carousel-inner .carousel-item-start.active, 
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-25%);
+  }
 }
-
 .carousel-inner .carousel-item-end,
 .carousel-inner .carousel-item-start{ 
-  transform: translateX(0);
+transform: translateX(0);
 }
 </style>
