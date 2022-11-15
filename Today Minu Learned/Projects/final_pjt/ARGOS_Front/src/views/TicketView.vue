@@ -1,11 +1,19 @@
 <template>
   <div>
-    <h1>ticket</h1>
+    <get-location/>
+    <ticket-map/>
   </div>
 </template>
 
 <script>
+import GetLocation from "@/components/GetLocation.vue"
+import TicketMap from '@/components/TicketMap.vue'
+
 export default {
+  components: { 
+    GetLocation,
+    TicketMap
+  },
   name: 'TicketView',
 }
 </script>

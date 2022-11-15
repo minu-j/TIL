@@ -1,15 +1,16 @@
 <template>
   <div>
-
+    <h1>Login</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeMovieRecommend',
+  name: 'LoginView',
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "./LoginView.scss";
 
 </style>
