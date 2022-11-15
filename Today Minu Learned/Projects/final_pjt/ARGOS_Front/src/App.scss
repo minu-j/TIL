@@ -1,0 +1,73 @@
+@import url(
+  'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Paytone+One&display=swap'
+  );
+  /* font-family: 'Noto Sans KR', sans-serif;
+     font-family: 'Paytone One', sans-serif; */
+
+@font-face {
+  font-family: 'NanumSquareNeo-Variable';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Noto Sans KR';
+  background-color: #222222;
+}
+
+nav {
+  font-family: 'Paytone One';
+  text-align: center;
+  text-decoration: none;
+}
+
+#logo {
+  font-size: 20pt;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+#logo-img {
+  height: 30px;
+  padding-top: 3px;
+  margin-right: 7px;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+
+  a {
+    padding: 0px;
+    color: gray;
+    position: absolute;
+    border-radius: 20px;
+
+    &:hover {
+      color: white;
+    }
+  
+    &.router-link-active {
+      color: #222222;
+      height: 24px;
+      width: 80px;
+      background-color: white;
+      border-radius: 20px;
+    }
+    &.router-link-active:hover {
+      color: white;
+      background-color: #222222;
+      outline: 2px white solid;
+    }
+  }
+  
+  .nav-item--select {
+    height: 24px;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+  }
+}

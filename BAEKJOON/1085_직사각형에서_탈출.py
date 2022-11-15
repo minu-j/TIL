@@ -1,3 +1,2 @@
-for tc in range(int(input())):
-    N = int(input())
-    
+x, y, w, h = map(int, input().split())
+print(min(x, w - x, y, h - y))
