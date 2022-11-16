@@ -29,7 +29,7 @@ const searchMusic = function () {
 }
 
 const loadList = function (inputData) {
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 6; i++) {
     setTimeout(() => {
       const searchResultCard = document.createElement("div")
       searchResultCard.classList.add('search-result-card-load')
@@ -50,7 +50,7 @@ const loadList = function (inputData) {
       const albumArtist = document.createElement("div")
       albumArtist.classList.add('album-artist-load')
       albumDiscription.appendChild(albumArtist)
-    }, i * 100);
+    }, i * 40);
   }
 
   const API_KEY = config.apiKey
