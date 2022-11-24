@@ -1,5 +1,6 @@
 import sys
-sys.stdin = open('input.txt', 'r')
+
+sys.stdin = open('input.txt')
 
 pokemon = []
 
