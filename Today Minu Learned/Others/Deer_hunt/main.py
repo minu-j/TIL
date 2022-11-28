@@ -11,20 +11,41 @@ SNAKE = 2
 # ※ 현재 상태에서 빌드 시 사용할 수 있는 API는 사용 가능합니다
 # ※ 제출방법 : Me 함수와 사용한 전역변수 또는 전역함수를 포함하여 txt 파일로 만들어서 제출
 
-def Me(opp, turn, opp_prev, opp_last_pattern) :
+def Me(opp, turn, opp_prev, opp_last_pattern):
 	# 이 부분에 여러분의 알고리즘 구현이 들어갑니다
 
     # 해당게임 상대방 패턴 누적
     if turn == 0:
-        global daejeon3_8_opp_patternZ=
+        global daejeon3_8_opp_pattern
+        daejeon3_8_opp_pattern = []
+    else:
+        daejeon3_8_opp_pattern.append(opp_prev)
 
     # 상대방이 첫 게임이라면?
     if opp_last_pattern == [-1] * 10:
-
-    # # 첫 게임이 아니라면?
-    elif:
-
-	return 0 # 반드시 0 또는 1 또는 2로 리턴해야합니다
+        if turn % 2 == 1:
+            return 2
+        else:
+            return 0
+    else:
+        if turn > 3:
+            if daejeon3_8_opp_pattern[0:turn] == opp_last_pattern[0:turn]:
+                if opp_last_pattern[turn] == 0:
+                    return 0
+                elif opp_last_pattern[turn] == 1:
+                    return 2
+                elif opp_last_pattern[turn] == 2:
+                    return 2
+            else:
+                if turn % 2 == 1:
+                    return 2
+                else:
+                    return 0
+        else:
+            if turn % 2 == 1:
+                return 2
+            else:
+                return 0
 
 # 아래 Opponent1~3은 테스트용 상대 사냥꾼입니다
 # 기본 제공 코드는 임의 수정해도 관계 없습니다
