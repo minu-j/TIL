@@ -48,7 +48,7 @@ function App() {
   // const _mode = useState('WELCOME')
   // const mode = _mode[0]
   // const setMode = _mode[1]
-  // =>
+  // => 아래와 동일함.
   const [mode, setMode] = useState('WELCOME')
 
   const [id, setId] = useState(null)
