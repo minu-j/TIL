@@ -1,0 +1,120 @@
+.App {
+  text-align: center;
+}
+
+#info {
+  font-size: 10pt;
+  font-weight: normal;
+  color: gray;
+  margin-bottom: 100px;
+}
+
+#possible {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  width: 370px;
+  background-color: #383d45;
+  height: 60px;
+  border-radius: 20px;
+}
+
+#git {
+  margin-top: 20px;
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.App-logo {
+  height: 10vmin;
+  pointer-events: none;
+  margin-top: 50px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(15px + 2vmin);
+  font-weight: bold;
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.game {
+  display: flex;
+  font-size: 14pt;
+  margin: 20px;
+  align-items: center;
+}
+
+.game-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-score-img {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.game-score-name {
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.game-score-input {
+  font-size: 14px;
+  text-align: center;
+  background-color: #383d45;
+  color: white;
+  font-weight: 600;
+  border: none;
+  width: 60px;
+  height: 20px;
+  border-radius: 20px;
+}
+
+.row {
+  justify-content: center;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  background-color: #383d45;
+  height: 30px;
+  margin-block: 10px;
+  padding-inline: 15px;
+  border-radius: 20px;
+  transition: all 1s linear;
+}
+
+.row-title {
+  width: 80px;
+}
+.row-num {
+  width: 40px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
