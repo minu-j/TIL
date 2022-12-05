@@ -1,6 +1,5 @@
-arr = []
+arr = set()
 for tc in range(int(input())):
-    arr.append(input())
-arr = sorted(arr, key=lambda x: (len(x), x))
-for _ in arr:
-    print(_)
+    arr.add(input())
+for word in sorted(list(arr), key=lambda x: (len(x), x)):
+    print(word)
