@@ -15,7 +15,7 @@ function AddButton() {
 
 export default AddButton;
 
-const AddBtn = styled.h1`
+const AddBtn = styled.div`
   cursor: pointer;
   position: fixed;
   bottom: 40px;
@@ -28,7 +28,7 @@ const AddBtn = styled.h1`
   border-radius: 80px;
 `
 
-const Plus = styled.h1`
+const Plus = styled.div`
   font-size: 60px;
   color: white;
   font-weight: 800;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
@@ -8,10 +8,35 @@ import TodoComponent from './components/TodoComponent'
 import { StateType, todo } from './stores/reducers';
 
 function App() {
+  const [focusedTodo, setFocusedTodo] = useState<number | null>(null)
+
   const todos = useSelector((state: StateType) => {
-    const TodoComponentList: any[] = []
-    state.todos.map(() => {
-      TodoComponentList.push(<TodoComponent></TodoComponent>)
+    const TodoComponentList: JSX.Element[] = []
+    state.todos.map((todo: todo) => {
+      TodoComponentList.push(<TodoComponent
+        key={todo.id}
+        focusedTodo={focusedTodo}
+        setFocusedTodo={setFocusedTodo}
+        id={todo.id}
+        content={todo.content}
+        isCompleted={false}
+        created={todo.created}
+      ></TodoComponent>)
+    })
+    return TodoComponentList
+  })
+  const completedTodos = useSelector((state: StateType) => {
+    const TodoComponentList: JSX.Element[] = []
+    state.completeTodos.map((todo: todo) => {
+      TodoComponentList.push(<TodoComponent
+        key={todo.id}
+        focusedTodo={focusedTodo}
+        setFocusedTodo={setFocusedTodo}
+        id={todo.id}
+        content={todo.content}
+        isCompleted={true}
+        created={todo.created}
+      ></TodoComponent>)
     })
     return TodoComponentList
   })
@@ -21,6 +46,7 @@ function App() {
       <Header></Header>
       <AddButton></AddButton>
       {todos}
+      {completedTodos}
     </AppContainer>
   );
 }

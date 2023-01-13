@@ -1,23 +1,76 @@
-import React from 'react';
+import React, { ChangeEvent, EventHandler, useState } from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 
 import { todo } from '../stores/reducers'
+import { CHECK_TODO, UNCHECK_TODO, SAVE_TODO } from '../stores/types'
 
-function TodoComponent(props: any) {
+interface todoData extends todo {
+  focusedTodo: number | null
+  setFocusedTodo: (value: number | null) => void
+  isCompleted: boolean
+}
+
+function TodoComponent(props: todoData) {
+
+  const dispatch = useDispatch()
+
   return (
     <Container>
       <TodoData>
-        <CreateTime>2023-01-11 09:00</CreateTime>
-        <TodoContent>{props.notCompleted}</TodoContent>
+        <TodoCreated content={props.content} isCompleted={props.isCompleted}>{props.created}</TodoCreated>
+        {props.focusedTodo === props.id
+          ? <TodoInput 
+              placeholder="새로운 TODO"
+              value={props.content}
+              onChange={(e: any) => dispatch({type: SAVE_TODO, payload: {id: props.id, content: e.target.value}})}
+              onKeyUp={(e: KeyboardEvent & ChangeEvent<HTMLInputElement>) => {
+                if (e.key === 'Enter') {
+                  dispatch({type: SAVE_TODO, payload: {id: props.id, content: e.target.value}})
+                  props.setFocusedTodo(null)
+                }
+              }}
+              autoFocus></TodoInput>
+          : props.content === '' 
+            ? <TodoContent 
+                onClick={() => {
+                  if (!props.isCompleted) {
+                    props.setFocusedTodo(props.id)
+                  }
+                }}
+                content={props.content} 
+                isCompleted={props.isCompleted}
+              >새로운 TODO</TodoContent>
+            : <TodoContent 
+                onClick={() => {
+                  if (!props.isCompleted) {
+                    props.setFocusedTodo(props.id)
+                  }                
+                }}
+                content={props.content} 
+                isCompleted={props.isCompleted}
+              >{props.content}</TodoContent>
+        }
       </TodoData>
-      <Checkbox>
-        <CheckboxMark></CheckboxMark>
+      <Checkbox onClick={() => {
+        if (props.isCompleted) {
+          dispatch({type: UNCHECK_TODO, todo: props})
+        } else {
+          dispatch({type: CHECK_TODO, todo: props})
+        }
+      }}>
+        {props.isCompleted ? <CheckboxMark></CheckboxMark> : null}
       </Checkbox>
     </Container>
   );
 }
 
 export default TodoComponent;
+
+interface todoProps {
+  content: string | null
+  isCompleted: boolean
+}
 
 const Container = styled.div`
   display: flex;
@@ -36,20 +89,50 @@ const TodoData = styled.div`
   padding: 20px;
 `
 
-const CreateTime = styled.div`
+const TodoCreated = styled.div<todoProps>`
   font-weight: 400;
   font-size: 16px;
+  ${props => {
+    if (props.isCompleted) {
+      return 'color: #D9D9D9;'
+    } else {
+      return 'color: black;'
+    }
+  }}
 `
 
-const TodoContent = styled.div`
-  width: 100%;
+const TodoInput = styled.input<any>`
+  padding: 0px;
   margin-top: 5px;
   font-weight: 700;
   font-size: 24px;
+  font-family: 'Noto Sans KR', sans-serif;
+  border: none;
+  &::placeholder {
+    color: #D9D9D9;
+  }
+`
+
+const TodoContent = styled.div<todoProps>`
+  width: 100%;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 24px;
   word-break: break-all;
+  ${props => {
+    if (props.isCompleted) {
+      return 'color: #D9D9D9; text-decoration-line: line-through;'
+    } else if(props.content === '') {
+      return 'color: #D9D9D9;'
+    } else {
+      return 'color: black;'
+    }
+  }}
+  margin-bottom: 5px;
 `
 
 const Checkbox = styled.div`
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;

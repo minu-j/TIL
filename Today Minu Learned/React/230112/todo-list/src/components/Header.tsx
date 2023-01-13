@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
-import { StateType, todo } from '../stores/reducers';
+import { StateType } from '../stores/reducers';
 
 function Header() {
-  const notCompleted = useSelector((state: StateType) => state.notCompleted)
+  const notCompleted = useSelector((state: StateType) => state.todos.length)
 
   return (
     <AppHeader>
@@ -26,7 +26,7 @@ const AppHeader = styled.div`
   width: 100%;
   height: 200px;
   font-family: 'Noto Sans KR', sans-serif;
-  background-image: linear-gradient(white 60%, #ffffff00);
+  background-image: linear-gradient(white 80%, #ffffff00);
 `
 
 const AppTitle = styled.h1`
