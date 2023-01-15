@@ -7,6 +7,7 @@ function AddButton() {
   const dispatch = useDispatch()
 
   return (
+    // 추가 버튼 클릭시 새로운 todo 생성
     <AddBtn onClick={() => dispatch({type: ADD_TODO})}>
       <Plus>+</Plus>
     </AddBtn>

@@ -12,32 +12,18 @@ function App() {
 
   const todos = useSelector((state: StateType) => {
     const TodoComponentList: JSX.Element[] = []
-    state.todos.map((todo: todo) => {
+    state.todos.map((todo: todo) => 
       TodoComponentList.push(<TodoComponent
         key={todo.id}
         focusedTodo={focusedTodo}
         setFocusedTodo={setFocusedTodo}
         id={todo.id}
         content={todo.content}
-        isCompleted={false}
+        isCompleted={todo.isCompleted}
         created={todo.created}
+        deleteCnt={todo.deleteCnt}
       ></TodoComponent>)
-    })
-    return TodoComponentList
-  })
-  const completedTodos = useSelector((state: StateType) => {
-    const TodoComponentList: JSX.Element[] = []
-    state.completeTodos.map((todo: todo) => {
-      TodoComponentList.push(<TodoComponent
-        key={todo.id}
-        focusedTodo={focusedTodo}
-        setFocusedTodo={setFocusedTodo}
-        id={todo.id}
-        content={todo.content}
-        isCompleted={true}
-        created={todo.created}
-      ></TodoComponent>)
-    })
+    )
     return TodoComponentList
   })
 
@@ -46,7 +32,6 @@ function App() {
       <Header></Header>
       <AddButton></AddButton>
       {todos}
-      {completedTodos}
     </AppContainer>
   );
 }

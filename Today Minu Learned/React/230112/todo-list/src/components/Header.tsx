@@ -2,10 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
+import { todo } from '../stores/reducers'
 import { StateType } from '../stores/reducers';
 
 function Header() {
-  const notCompleted = useSelector((state: StateType) => state.todos.length)
+  // 미완료 개수
+  const notCompleted = useSelector((state: StateType) => state.todos).reduce((count: number, todo: todo) => 
+    // 완료되지 않을때만 개수 카운트
+    todo.isCompleted === false ? count + 1 : count, 0)
 
   return (
     <AppHeader>
