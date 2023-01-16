@@ -31,7 +31,6 @@ function TodoComponent(props: todoData) {
               onChange={(e: any) => dispatch({type: SAVE_TODO, payload: {id: props.id, content: e.target.value}})}
               onKeyUp={(e: KeyboardEvent & ChangeEvent<HTMLInputElement>) => {
                 if (e.key === 'Enter') {
-                  dispatch({type: SAVE_TODO, payload: {id: props.id, content: e.target.value}})
                   props.setFocusedTodo(null)
                 }
               }}
