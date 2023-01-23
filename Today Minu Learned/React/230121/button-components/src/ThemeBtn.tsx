@@ -95,12 +95,13 @@ const StyledThemeBtn = styled.button<IStyledThemeBtn>`
   color: ${(props) => (props.isDark ? BASALT_GRAY_50 : BASALT_GRAY_900)};
   background: ${(props) => (props.isDark ? BASALT_GRAY_900 : BASALT_GRAY_50)};
   animation: ${sunRise} 1s ease-out both;
-  transition: all 0.5s;
+  transition: all 0.5s ease-in-out;
   &:hover {
     color: ${MANGO_YELLOW_600};
   }
   &:active {
     background: ${(props) => (props.isDark ? BASALT_GRAY_50 : BASALT_GRAY_900)};
     animation: ${sunSet} infinite 3s linear both;
+    scale: 0.95;
   }
 `;

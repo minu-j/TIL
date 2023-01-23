@@ -54,9 +54,21 @@ function App() {
       <Btn label={"로그인"} color={"green"} type={2} disabled={true}></Btn>
       <LikeBtn></LikeBtn>
       <ThemeBtn></ThemeBtn>
-      <ReactionBtn label={"쓰다듬기"} icon={TbHandStop} color={"#F1A604"}></ReactionBtn>
-      <ReactionBtn label={"예뻐하기"} icon={TbHeart} color={"#ff38a4"}></ReactionBtn>
-      <ReactionBtn label={"응원하기"} icon={TbFlame} color={"#F33041"}></ReactionBtn>
+      <ReactionBtn
+        label={"쓰다듬기"}
+        icon={TbHandStop}
+        color={"#F1A604"}
+      ></ReactionBtn>
+      <ReactionBtn
+        label={"예뻐하기"}
+        icon={TbHeart}
+        color={"#ff38a4"}
+      ></ReactionBtn>
+      <ReactionBtn
+        label={"응원하기"}
+        icon={TbFlame}
+        color={"#F33041"}
+      ></ReactionBtn>
     </AppContainer>
   );
 }

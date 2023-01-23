@@ -103,7 +103,7 @@ interface IStyledBtn {
 }
 
 const StyledBtn = styled.button<IStyledBtn>`
-  cursor: ${(props) => (props.disabled ? "normal" : "pointer")};
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   max-width: 200px;
   min-height: 48px;
   background: ${(props) => props.btnStyles.background.normal};
@@ -122,10 +122,11 @@ const StyledBtn = styled.button<IStyledBtn>`
   &:active {
     // filter: drop-shadow(2px 2px 8px rgba(67, 67, 67, 0.2)) brightness(0.8);
     background: ${(props) => props.btnStyles.background.active};
+    scale: ${(props) => (props.disabled ? "none" : "0.95")};
   }
 `;
 
-const StyledBtnLabel = styled.h3`
+const StyledBtnLabel = styled.a`
   font-family: "NanumSquareNeo-Variable";
   font-weight: 700;
   display: flex;

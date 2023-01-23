@@ -37,7 +37,7 @@ const LIGHT_INFORMATIVE = "#1790C3";
 const LIGHT_DANGER = "#F33041";
 
 function ReactionBtn(props: any) {
-  const Icon = props.icon
+  const Icon = props.icon;
 
   return (
     <StyledReactionBtn background={props.color}>
@@ -49,11 +49,6 @@ function ReactionBtn(props: any) {
 
 export default ReactionBtn;
 
-const sunRise = keyframes`
-  from {}
-  to {}
-`;
-
 const StyledReactionBtn = styled.button<any>`
   display: flex;
   justify-content: center;
@@ -64,39 +59,39 @@ const StyledReactionBtn = styled.button<any>`
   border: none;
   border-radius: 32px;
   color: ${BASALT_GRAY_50};
-  background: ${props => props.background};
-  animation: ${sunRise} 1s ease-out both;
+  background: ${(props) => props.background};
   transition: all 0.2s;
   &:hover {
     width: 117px;
-    color: ${props => props.background};
+    color: ${(props) => props.background};
   }
   &:active {
     filter: brightness(0.9);
+    scale: 0.95;
   }
-  `;
-  
-  const StyledBtnLabel = styled.h3`
-    position: absolute;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 56px;
-    height: 56px;
-    border-radius: 32px;
-    margin-inline: 20px;
-    font-family: "NanumSquareNeo-Variable";
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    font-weight: bold;
-    word-break: break-all;
-    transition: all 0.2s;
-    opacity: 0;
-    &:hover {
-      width: 117px;
-      opacity: 100;
-      color: ${BASALT_GRAY_50};
-    }
+`;
+
+const StyledBtnLabel = styled.a`
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 56px;
+  height: 56px;
+  border-radius: 32px;
+  margin-inline: 20px;
+  font-family: "NanumSquareNeo-Variable";
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  word-break: break-all;
+  transition: all 0.2s;
+  opacity: 0;
+  &:hover {
+    width: 117px;
+    opacity: 100;
+    color: ${BASALT_GRAY_50};
+  }
 `;
