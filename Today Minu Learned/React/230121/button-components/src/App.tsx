@@ -46,29 +46,29 @@ const LIGHT_DANGER = "#F33041";
 function App() {
   return (
     <AppContainer>
-      <Btn label={"로그인"} color={"green"} type={0} disabled={false}></Btn>
-      <Btn label={"로그인"} color={"green"} type={1} disabled={false}></Btn>
-      <Btn label={"로그인"} color={"green"} type={2} disabled={false}></Btn>
-      <Btn label={"로그인"} color={"green"} type={0} disabled={true}></Btn>
-      <Btn label={"로그인"} color={"green"} type={1} disabled={true}></Btn>
-      <Btn label={"로그인"} color={"green"} type={2} disabled={true}></Btn>
+      <Btn label={"로그인"} color={"green"} type={0} disabled={false}/>
+      <Btn label={"로그인"} color={"green"} type={1} disabled={false}/>
+      <Btn label={"로그인"} color={"green"} type={2} disabled={false}/>
+      <Btn label={"로그인"} color={"green"} type={0} disabled={true}/>
+      <Btn label={"로그인"} color={"green"} type={1} disabled={true}/>
+      <Btn label={"로그인"} color={"green"} type={2} disabled={true}/>
       <LikeBtn></LikeBtn>
       <ThemeBtn></ThemeBtn>
       <ReactionBtn
         label={"쓰다듬기"}
         icon={TbHandStop}
         color={"#F1A604"}
-      ></ReactionBtn>
+      />
       <ReactionBtn
         label={"예뻐하기"}
         icon={TbHeart}
         color={"#ff38a4"}
-      ></ReactionBtn>
+        />
       <ReactionBtn
         label={"응원하기"}
         icon={TbFlame}
         color={"#F33041"}
-      ></ReactionBtn>
+        />
     </AppContainer>
   );
 }

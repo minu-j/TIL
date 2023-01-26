@@ -95,10 +95,17 @@ const StyledLikeBtn = styled.button`
   word-break: break-all;
   transition: all 0.2s;
   &:hover {
-    background: ${JURASSIC_GREEN_50};
+    filter: drop-shadow(2px 2px 8px rgba(67, 67, 67, 0.2)) brightness(0.95);
+    // background: ${JURASSIC_GREEN_50};
   }
   &:active {
-    background: ${JURASSIC_GREEN_100};
+    filter: drop-shadow(2px 2px 8px rgba(67, 67, 67, 0.2)) brightness(0.9);
+    // background: ${JURASSIC_GREEN_100};
+    // scale: 0.95;
+  }
+  &:active {
+    // filter: drop-shadow(2px 2px 8px rgba(67, 67, 67, 0.2)) brightness(0.8);
+    // background: ${JURASSIC_GREEN_100};
     scale: 0.95;
   }
 `;

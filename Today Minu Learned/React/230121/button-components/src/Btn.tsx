@@ -116,12 +116,12 @@ const StyledBtn = styled.button<IStyledBtn>`
   filter: drop-shadow(2px 2px 8px rgba(67, 67, 67, 0.2));
   transition: all 0.2s;
   &:hover {
-    // filter: drop-shadow(2px 2px 8px rgba(67, 67, 67, 0.2)) brightness(0.9);
-    background: ${(props) => props.btnStyles.background.hover};
+    filter: drop-shadow(2px 2px 8px rgba(67, 67, 67, 0.2)) brightness(0.9);
+    // background: ${(props) => props.btnStyles.background.hover};
   }
   &:active {
-    // filter: drop-shadow(2px 2px 8px rgba(67, 67, 67, 0.2)) brightness(0.8);
-    background: ${(props) => props.btnStyles.background.active};
+    filter: drop-shadow(2px 2px 8px rgba(67, 67, 67, 0.2)) brightness(0.8);
+    // background: ${(props) => props.btnStyles.background.active};
     scale: ${(props) => (props.disabled ? "none" : "0.95")};
   }
 `;
