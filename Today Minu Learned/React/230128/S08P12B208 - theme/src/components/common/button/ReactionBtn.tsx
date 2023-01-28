@@ -9,7 +9,6 @@ interface Iprops {
 
 function ReactionBtn(props: Iprops) {
   const Icon = props.icon;
-  console.log(props.icon);
 
   return (
     <StyledReactionBtn background={props.color}>
@@ -26,24 +25,18 @@ interface IStyledReactionBtn {
 }
 
 const StyledReactionBtn = styled.button<IStyledReactionBtn>`
+  ${(props) => props.theme.styles.button}
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
   width: 56px;
   height: 56px;
   border: none;
-  border-radius: 32px;
   color: ${(props) => props.theme.colors.brandColors.basaltGray[50]};
   background: ${(props) => props.background};
-  transition: all 0.2s;
   &:hover {
     width: 117px;
     color: ${(props) => props.background};
-  }
-  &:active {
-    filter: brightness(0.9);
-    scale: 0.95;
   }
 `;
 

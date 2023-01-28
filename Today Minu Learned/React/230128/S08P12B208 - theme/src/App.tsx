@@ -12,6 +12,7 @@ import LikeBtn from "./components/common/button/LikeBtn";
 import ReactionBtn from "./components/common/button/ReactionBtn";
 
 import { TbHandStop, TbHeart, TbFlame } from "react-icons/tb";
+import Btn from "./components/common/button/Btn";
 
 function App() {
   const [themeMode, toggleTheme] = useTheme();
@@ -27,6 +28,12 @@ function App() {
         <ReactionBtn label={"쓰다듬기"} icon={TbHandStop} color={"#F1A604"} />
         <ReactionBtn label={"예뻐하기"} icon={TbHeart} color={"#ff38a4"} />
         <ReactionBtn label={"응원하기"} icon={TbFlame} color={"#F33041"} />
+        <Btn label={"로그인"} type={0} isDisable={false} />
+        <Btn label={"로그인"} type={1} isDisable={false} />
+        <Btn label={"로그인"} type={2} isDisable={false} />
+        <Btn label={"로그인"} type={0} isDisable={true} />
+        <Btn label={"로그인"} type={1} isDisable={true} />
+        <Btn label={"로그인"} type={2} isDisable={true} />
       </Main>
     </ThemeProvider>
   );
