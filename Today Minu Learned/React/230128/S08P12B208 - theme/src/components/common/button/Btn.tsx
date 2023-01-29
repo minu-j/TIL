@@ -5,7 +5,7 @@ import styled from "styled-components";
 interface IBtn {
   label: string; // 라벨
   type: number; // 타입(0: primery / 1: secondery / 2: tertiary)
-  isDisable: boolean;
+  isDisable: boolean; // 비활성화 여부
 }
 
 function Btn(props: IBtn) {

@@ -2,13 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 interface Iprops {
-  label: string;
-  icon: React.ElementType;
-  color: string;
+  // 리액션 버튼 props type
+  label: string; // 리액션 버튼의 라벨
+  icon: React.ElementType; // 리액션 버튼의 아이콘
+  color: string; // 리액션 버튼의 색깔
 }
 
 function ReactionBtn(props: Iprops) {
-  const Icon = props.icon;
+  const Icon = props.icon; // prop된 아이콘
 
   return (
     <StyledReactionBtn background={props.color}>
@@ -21,10 +22,12 @@ function ReactionBtn(props: Iprops) {
 export default ReactionBtn;
 
 interface IStyledReactionBtn {
+  // 버튼 컴포넌트의 props type
   background: string;
 }
 
 const StyledReactionBtn = styled.button<IStyledReactionBtn>`
+  ${(props) => props.theme.shadow}
   ${(props) => props.theme.styles.button}
   display: flex;
   justify-content: center;
