@@ -13,7 +13,7 @@ import ThemeBtn from "./components/common/button/ThemeBtn";
 import Nav from "./components/common/Navbar/Nav";
 
 import Test from "./pages/Test";
-import HomeTest from "./pages/HomeTest";
+import Map from "./pages/Map";
 
 function App() {
   const [themeMode, toggleTheme] = useTheme();
@@ -23,7 +23,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Nav themeMode={themeMode} toggleTheme={toggleTheme}></Nav>
       <Routes>
-        <Route path="/" element={<HomeTest />}></Route>
+        <Route path="/map" element={<Map />}></Route>
         <Route path="/test" element={<Test />}></Route>
       </Routes>
     </ThemeProvider>
