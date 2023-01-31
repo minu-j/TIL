@@ -130,3 +130,19 @@ $ git push origin <branch name>
 
 ```
 업스트링 등록 > git pull upstring?
+
+## Stash
+
+아직 마무리하지 않은 작업을 스택에 잠시 저장하는 명령
+
+`git stash` : 새로운 stash를 생성하여 작업을 중단하고 임시 저장한 후 가장 최근 commit으로 되돌려준다.
+
+`git stash list` : 생성된 stash list를 확인한다.
+
+`git stash apply` : 가장 최근 stash 적용
+`git stash apply {stash name}` : 해당 이름의 stash 적용
+
+`git stash drop` : 가장 최근 stash 제거
+`git stash drop {stash name}` : 해당 이름의 stash 제거
+
+`git stash pop : 적용과 동시에 해당 stash 제거`
