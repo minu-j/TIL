@@ -23,7 +23,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Nav themeMode={themeMode} toggleTheme={toggleTheme}></Nav>
       <Routes>
-        <Route path="/map" element={<Map />}></Route>
+        {/* <Route path="/" element={<Name />}></Route> */}
         <Route path="/test" element={<Test />}></Route>
       </Routes>
     </ThemeProvider>
