@@ -1,44 +1,67 @@
 import { createRoot } from "react-dom/client";
+import * as THREE from "three";
 import React, { useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
+import { Stats, OrbitControls, Stars } from "@react-three/drei";
 
-function Box(props) {
-  // This reference will give us direct access to the mesh
-  const mesh = useRef();
-  // Set up state for the hovered and active state
-  const [hovered, setHover] = useState(false);
-  const [active, setActive] = useState(false);
-  // Subscribe this component to the render-loop, rotate the mesh every frame
-  useFrame((state, delta) => {
-    mesh.current.rotation.x += delta;
-    mesh.current.rotation.y += delta;
-    mesh.current.rotation.z += delta;
-    console.log(state);
+function Plane(props) {
+  const meshRef = useRef();
+  const raycaster = new THREE.Raycaster();
+
+  useFrame(({ camera, mouse }) => {
+    raycaster.setFromCamera(mouse, camera);
   });
-  // Return view, these are regular three.js elements expressed in JSX
+
+  const onPointerDown = (event) => {
+    let intersects = raycaster.intersectObjects(event.target);
+    console.log(intersects);
+  };
+
   return (
     <mesh
-      {...props}
-      ref={mesh}
-      scale={active ? 1.5 : 1}
-      onClick={(event) => setActive(!active)}
-      onPointerOver={(event) => setHover(true)}
-      onPointerOut={(event) => setHover(false)}
+      onClick={onPointerDown}
+      ref={meshRef}
+      position={[0, 0, 0]}
+      rotation={[-Math.PI / 2, 0, 0]}
+      castShadow
+      receiveShadow
     >
-      <boxGeometry args={[2, 2, 2]} />
-      <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
+      <planeGeometry args={[15, 15]} />
+      <meshStandardMaterial color={"#ffffff"} />
+    </mesh>
+  );
+}
+
+function Box(props) {
+  const meshRef = useRef();
+
+  return (
+    <mesh ref={meshRef} position={[0, 1, 0]} castShadow receiveShadow>
+      <sphereGeometry args={[1, 32, 32]} />
+      <meshStandardMaterial color={"#ffffff"} />
     </mesh>
   );
 }
 
 function App() {
   return (
-    <Canvas>
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
-      <Box position={[-3, 0, 0]} />
-      <Box position={[3, 0, 0]} />
-    </Canvas>
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <Canvas camera={{ position: [0, 10, 20] }}>
+        <color attach="background" args={["#000000"]} />
+        <OrbitControls />
+        <Stars></Stars>
+        <directionalLight
+          position={[10, 10, 10]}
+          intensity={0.7}
+          castShadow
+          receiveShadoww
+        />
+        <Box />
+        <Plane />
+        <Stats></Stats>
+        <gridHelper args={[100, 100]} />
+      </Canvas>
+    </div>
   );
 }
 
