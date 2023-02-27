@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: HelloPage('ㅁㄴㅇㄹㅁㄴㅇㄹ')
+      home: HelloPage('Hello, wordl')
     );
   }
 }
@@ -45,7 +45,7 @@ class _HelloPageState extends State<HelloPage> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add_alert_sharp),
-        onPressed: () => print('asdfasdf'),),
+        onPressed: () => print('tab button'),),
         appBar: AppBar(
           title: Text(widget.title)
         ),
