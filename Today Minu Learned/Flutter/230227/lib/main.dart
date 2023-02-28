@@ -20,54 +20,51 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var a = 1;
-  var nameList = <String>['인물1', '인물2', '인물3'];
-  var likeList = <int>[0, 0, 0];
+  var total = 0;
+  var nameList = <String>[];
+  var likeList = <int>[];
+  void addName (name) {
+    setState(() {
+      total++;
+      nameList.add(name);
+      likeList.add(0);
+    });
+  }
+  void deleteName (index) {
+    setState(() {
+      total--;
+      nameList.removeAt(index);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        child: Text(a.toString()),
+        child: Icon(Icons.add),
         onPressed: () {
           showDialog(context: context, builder: (context) {
-            return SimpleDialog(
-              title: Text("Contact"),
-              contentPadding: EdgeInsets.fromLTRB(24, 24, 24, 12),
-              children: <Widget>[
-                TextField(),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(onPressed: () {
-                        Navigator.pop(context);
-                      }, child: Text("Cancle")),
-                      TextButton(onPressed: () {
-                        Navigator.pop(context);
-                      }, child: Text("OK")),
-                    ],
-                  ),
-                )
-              ]
-            );
+            return userDialog(total: total, addName: addName);
           });
         },
       ),
-      appBar: AppBar(),
+      appBar: AppBar(
+          title: Text('연락처 ' + nameList.length.toString() + '명')
+      ),
       body: ListView.builder(
         itemCount: nameList.length,
         itemBuilder: (context, index) {
           return ListTile(
-            leading: Text(likeList[index].toString()),
+            leading: Text((index + 1).toString()),
             title: Text(nameList[index]),
               trailing: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                ),
                 onPressed: () {
-                  setState(() {
-                    likeList[index]++;
-                  });
+                  deleteName(index);
                 },
-                child: Text('좋아요')
+                child: Text('삭제')
             ),
           );
         }
@@ -75,6 +72,52 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+class userDialog extends StatefulWidget {
+  userDialog({Key? key, this.total, this.addName}) : super(key: key);
+  var total;
+  final addName;
+
+  @override
+  State<userDialog> createState() => _userDialogState();
+}
+
+class _userDialogState extends State<userDialog> {
+  var inputData = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return SimpleDialog(
+        title: Text("Contact"),
+        contentPadding: EdgeInsets.fromLTRB(24, 24, 24, 12),
+        children: <Widget>[
+          TextField(onChanged: (text) {
+            inputData = text;
+            print(inputData);
+          },),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(onPressed: () {
+                  Navigator.pop(context);
+                }, child: Text("취소")),
+                TextButton(onPressed: () {
+                  if (inputData.length > 0) {
+                    widget.addName(inputData);
+                    Navigator.pop(context);
+                  } else {
+                    print(inputData == "");
+                  }
+                }, child: Text("생성")),
+              ],
+            ),
+          )
+        ]
+    );
+  }
+}
+
 
 // Flutter 기본 문법
 //
