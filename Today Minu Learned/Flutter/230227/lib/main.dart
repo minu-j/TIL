@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:contacts_service/contacts_service.dart';
 
 void main() {
   runApp(
@@ -20,22 +22,36 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var total = 0;
-  var nameList = <String>[];
+  var contactList = <Contact>[];
   var likeList = <int>[];
   void addName (name) {
-    setState(() {
-      total++;
-      nameList.add(name);
-      likeList.add(0);
-    });
+    var newName = new Contact();
+    newName.givenName = name;
+    ContactsService.addContact(newName);
+    getPermissionContact();
   }
-  void deleteName (index) {
-    setState(() {
-      total--;
-      nameList.removeAt(index);
-    });
+  void deleteName (name) {
+    ContactsService.deleteContact(name);
   }
+  void getPermissionContact() async {
+    var status = await Permission.contacts.status;
+    if (status.isGranted) {
+      print('granted');
+      var contacts = await ContactsService.getContacts();
+      setState(() {
+        contactList = contacts;
+      });
+    } else if (status.isDenied) {
+      print('denied');
+      Permission.contacts.request();
+    }
+  }
+
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -44,25 +60,30 @@ class _MyAppState extends State<MyApp> {
         child: Icon(Icons.add),
         onPressed: () {
           showDialog(context: context, builder: (context) {
-            return userDialog(total: total, addName: addName);
+            return userDialog(addName: addName);
           });
         },
       ),
       appBar: AppBar(
-          title: Text('연락처 ' + nameList.length.toString() + '명')
+          title: Text('연락처 ' + contactList.length.toString() + '명'),
+        actions: [
+          IconButton(onPressed: () {
+            getPermissionContact();
+          }, icon: Icon(Icons.contacts))
+        ],
       ),
       body: ListView.builder(
-        itemCount: nameList.length,
+        itemCount: contactList.length,
         itemBuilder: (context, index) {
           return ListTile(
             leading: Text((index + 1).toString()),
-            title: Text(nameList[index]),
+            title: Text(contactList[index].displayName.toString()),
               trailing: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
                 ),
                 onPressed: () {
-                  deleteName(index);
+                  deleteName(contactList[index]);
                 },
                 child: Text('삭제')
             ),
@@ -74,8 +95,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class userDialog extends StatefulWidget {
-  userDialog({Key? key, this.total, this.addName}) : super(key: key);
-  var total;
+  userDialog({Key? key, this.addName}) : super(key: key);
   final addName;
 
   @override
