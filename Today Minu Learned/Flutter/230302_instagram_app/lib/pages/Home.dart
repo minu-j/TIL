@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../widgets/Home/HomeContent.dart';
 
@@ -75,7 +76,7 @@ class _HomePageState extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CircularProgressIndicator(),
+                  CupertinoActivityIndicator(),
                 ],
               )
             );
@@ -90,7 +91,7 @@ class _HomePageState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CircularProgressIndicator(),
+            CupertinoActivityIndicator(),
           ],
         ),
       );

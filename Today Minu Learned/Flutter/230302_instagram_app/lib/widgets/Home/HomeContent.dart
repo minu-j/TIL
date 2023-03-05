@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_share/flutter_share.dart';
 
 class HomeContent extends StatefulWidget {
   const HomeContent({Key? key,
@@ -56,7 +58,9 @@ class _ContentState extends State<HomeContent> {
                     ],
                   ),
                 ),
-                IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz, size: 24,)),
+                IconButton(onPressed: () {
+                  _showActionSheet(context);
+                }, icon: const Icon(Icons.more_horiz, size: 24,)),
               ],
             )
         ),
@@ -92,3 +96,45 @@ class _ContentState extends State<HomeContent> {
     );
   }
 }
+
+Future<void> share() async {
+  await FlutterShare.share(
+      title: 'Example share',
+      text: 'Example share text',
+      linkUrl: 'https://flutter.dev/',
+      chooserTitle: 'Example Chooser Title'
+  );
+}
+
+void _showActionSheet(BuildContext context) {
+  showCupertinoModalPopup<void>(
+    context: context,
+    builder: (BuildContext context) => CupertinoActionSheet(
+      title: const Text('더보기'),
+      actions: <CupertinoActionSheetAction>[
+        CupertinoActionSheetAction(
+          isDefaultAction: true,
+          onPressed: () {
+            share();
+            Navigator.pop(context);
+          },
+          child: const Text('공유'),
+        ),
+        CupertinoActionSheetAction(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('숨기기'),
+        ),
+        CupertinoActionSheetAction(
+          isDestructiveAction: true,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('신고'),
+        ),
+      ],
+    ),
+  );
+}
+

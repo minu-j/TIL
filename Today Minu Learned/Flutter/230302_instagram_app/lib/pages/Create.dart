@@ -38,6 +38,9 @@ class _CreateState extends State<Create> {
           TextButton(onPressed: () {
             createContent(userName, content);
             Navigator.pop(context);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Successfully created a new post!')),
+            );
           }, child: const Text("Save"))
         ],
       ),
@@ -97,3 +100,4 @@ class _CreateState extends State<Create> {
     );
   }
 }
+

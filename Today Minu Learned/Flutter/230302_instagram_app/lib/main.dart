@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:camera/camera.dart';
 
 import 'pages/Home.dart';
 import 'pages/Create.dart';
@@ -28,6 +30,35 @@ class _MyAppState extends State<MyApp> {
   List contentList = [];
   var selectedImage;
 
+  File? _imageFile;
+
+  Future<void> _pickImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        _imageFile = File(pickedFile.path);
+        _saveImageToAsset();
+      });
+    }
+  }
+
+  Future<void> _saveImageToAsset() async {
+    if (_imageFile == null) return;
+
+    final bytes = await _imageFile!.readAsBytes();
+    final directory = await getApplicationDocumentsDirectory();
+    final imagePath = '${directory.path}/new_image.png';
+    final newImageFile = File(imagePath);
+    await newImageFile.writeAsBytes(bytes);
+
+    await Navigator.push(context,
+        MaterialPageRoute(builder: (context){
+          return Create(selectedImage: _imageFile, contentList: contentList);
+        })
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,18 +66,7 @@ class _MyAppState extends State<MyApp> {
         title: const Text("Instagram"),
         actions: [IconButton(
             onPressed: () async {
-              var picker = ImagePicker();
-              var image = await picker.pickImage(source: ImageSource.gallery);
-              if (image != null) {
-                setState(() {
-                  selectedImage = File(image.path);
-                });
-                await Navigator.push(context,
-                    MaterialPageRoute(builder: (context){
-                      return Create(selectedImage: selectedImage, contentList: contentList);
-                    })
-                );
-              }
+              _pickImage();
             },
             icon: const Icon(Icons.add_box_outlined)
           )
