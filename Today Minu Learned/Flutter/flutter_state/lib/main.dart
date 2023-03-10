@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:highlight_text/highlight_text.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
+import 'package:record/record.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,6 +34,68 @@ class SpeechScreen extends StatefulWidget {
 }
 
 class _SpeechScreenState extends State<SpeechScreen> {
+  /////////////////////////////////////////////////////////
+  // audio meter
+  Record myRecording = Record();
+  Timer? timer;
+
+  bool _isRecording = false;
+
+  double volume = 0.0;
+  double minVolume = -45.0;
+
+  startTimer() async {
+    timer ??= Timer.periodic(
+        Duration(milliseconds: 10),
+            (timer) => updateVolume()
+    );
+  }
+
+  updateVolume() async {
+    Amplitude ampl = await myRecording.getAmplitude();
+    if (ampl.current > minVolume) {
+      if (ampl.current > -15) {
+        _switchMic();
+      }
+      setState(() {
+        volume = (ampl.current - minVolume) / minVolume;
+      });
+      print("Volume : $volume, ampl.current : ${ampl.current}");
+    }
+  }
+
+  int volume0to(int maxVolumeToDisplay) {
+    return (volume * maxVolumeToDisplay).round().abs();
+  }
+
+  Future<bool> startRecording() async {
+    if (await myRecording.hasPermission()) {
+      if (!await myRecording.isRecording()) {
+        await myRecording.start();
+      }
+      startTimer();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  _stopRecording() async {
+    myRecording.stop();
+    setState(() {
+      volume = 0.0;
+    });
+  }
+
+  _switchMic() async {
+    if (_isRecording) {
+      myRecording.stop();
+      _startListening();
+    }
+  }
+
+  /////////////////////////////////////////////////////////
+
   // late stt.SpeechToText _speech;
   SpeechToText _speechToText = SpeechToText();
   bool _speechEnabled = false;
@@ -55,6 +120,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
           setState(() {
             _isListening = false;
           });
+          startRecording();
         }
       },
       onError: (val) => print('onStatus: $val'),
@@ -111,12 +177,31 @@ class _SpeechScreenState extends State<SpeechScreen> {
           child: Icon(_isListening ? Icons.mic : Icons.mic_none),
         ),
       ),
-      body: SingleChildScrollView(
-        reverse: true,
-        child: Container(
-          padding: const EdgeInsets.fromLTRB(30, 30, 30, 150),
-          child: Text('$_text')
-        ),
+      body: Column(
+        children: [
+          SizedBox(
+            height: 50,
+            child: ElevatedButton(
+              onPressed: () async {
+                setState(() {
+                  _isRecording = !_isRecording;
+                });
+                if (_isRecording) {
+                  await startRecording();
+                } else {
+                  await _stopRecording();
+                }
+              },
+              child: Text(_isRecording ? volume0to(100).toString() : "Start Recording"),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.fromLTRB(30, 30, 30, 150),
+              child: Text('$_text')
+            ),
+          ),
+        ]
       ),
     );
   }
