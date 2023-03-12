@@ -45,10 +45,8 @@ class _SpeechScreenState extends State<SpeechScreen> {
   double minVolume = -45.0;
 
   startTimer() async {
-    timer ??= Timer.periodic(
-        Duration(milliseconds: 10),
-            (timer) => updateVolume()
-    );
+    timer ??=
+        Timer.periodic(Duration(milliseconds: 50), (timer) => updateVolume());
   }
 
   updateVolume() async {
@@ -157,7 +155,6 @@ class _SpeechScreenState extends State<SpeechScreen> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -177,32 +174,30 @@ class _SpeechScreenState extends State<SpeechScreen> {
           child: Icon(_isListening ? Icons.mic : Icons.mic_none),
         ),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 50,
-            child: ElevatedButton(
-              onPressed: () async {
-                setState(() {
-                  _isRecording = !_isRecording;
-                });
-                if (_isRecording) {
-                  await startRecording();
-                } else {
-                  await _stopRecording();
-                }
-              },
-              child: Text(_isRecording ? volume0to(100).toString() : "Start Recording"),
-            ),
+      body: Column(children: [
+        SizedBox(
+          height: 50,
+          child: ElevatedButton(
+            onPressed: () async {
+              setState(() {
+                _isRecording = !_isRecording;
+              });
+              if (_isRecording) {
+                await startRecording();
+              } else {
+                await _stopRecording();
+              }
+            },
+            child: Text(
+                _isRecording ? volume0to(100).toString() : "Start Recording"),
           ),
-          Expanded(
-            child: Container(
+        ),
+        Expanded(
+          child: Container(
               padding: const EdgeInsets.fromLTRB(30, 30, 30, 150),
-              child: Text('$_text')
-            ),
-          ),
-        ]
-      ),
+              child: Text('$_text')),
+        ),
+      ]),
     );
   }
 }
