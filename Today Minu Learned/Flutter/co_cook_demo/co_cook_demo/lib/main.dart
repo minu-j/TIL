@@ -8,6 +8,7 @@ import 'common_tag.dart';
 import 'common_toggle.dart';
 import 'recipe_list_tile.dart';
 import 'comment.dart';
+import 'comment_reply.dart';
 
 void main() {
   runApp(const MainScreen());
@@ -61,7 +62,16 @@ class _CommentScreenState extends State<CommentScreen> {
           ),
           backgroundColor: MainColors.monotoneLight,
           shadowColor: Colors.transparent),
-      body: Column(children: [Comment()]),
+      body: Stack(children: [
+        Column(children: [
+          Comment(
+            highlight: true,
+            myComment: true,
+            panelController: panelController,
+          ),
+        ]),
+        CommentReply()
+      ]),
       bottomNavigationBar:
           BottomNav(currentIndex: _currentIndex, onTap: changeTabIndex),
     );
