@@ -5,23 +5,23 @@ import 'styles/color.dart';
 // 버튼 타입
 enum ButtonType { red, green, none }
 
-class Button extends StatefulWidget {
-  const Button(
+class CommonButton extends StatefulWidget {
+  const CommonButton(
       {super.key,
       required this.label,
       required this.color,
-      required this.isActive,
+      this.isActive = true,
       required this.onPressed});
-  final String label;
-  final ButtonType color;
-  final bool isActive;
-  final Function onPressed;
+  final String label; // 버튼 라벨
+  final ButtonType color; // 버튼 색깔, ButtonType
+  final bool isActive; // 버튼 작동유무, 기본값 = true
+  final Function onPressed; // 버튼이 눌렸을 경우 실행할 함수
 
   @override
-  State<Button> createState() => _ButtonState();
+  State<CommonButton> createState() => _CommonButtonState();
 }
 
-class _ButtonState extends State<Button> {
+class _CommonButtonState extends State<CommonButton> {
   @override
   Widget build(BuildContext context) {
     Color buttonColor;

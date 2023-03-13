@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'styles/color.dart';
 
-class Toggle extends StatefulWidget {
-  const Toggle(
+class CommonToggle extends StatefulWidget {
+  const CommonToggle(
       {super.key,
       required this.label,
       required this.isToggleOn,
       required this.onPressed});
-  final String label;
-  final bool isToggleOn;
-  final Function onPressed;
+  final String label; // 토글 라벨
+  final bool isToggleOn; // 토글의 상태
+  final Function onPressed; // 버튼이 눌렸을 경우 실행할 함수
 
   @override
-  State<Toggle> createState() => _ToggleState();
+  State<CommonToggle> createState() => _CommonToggleState();
 }
 
-class _ToggleState extends State<Toggle> {
+class _CommonToggleState extends State<CommonToggle> {
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(

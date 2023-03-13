@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'styles/color.dart';
 
-class Tag extends StatefulWidget {
-  const Tag({super.key, required this.label, required this.onPressed});
-  final String label;
-  final Function onPressed;
+class CommonTag extends StatefulWidget {
+  const CommonTag({super.key, required this.label, required this.onPressed});
+  final String label; // 태그 라벨
+  final Function onPressed; // 버튼이 눌렸을 경우 실행할 함수
 
   @override
-  State<Tag> createState() => _TagState();
+  State<CommonTag> createState() => _CommonTagState();
 }
 
-class _TagState extends State<Tag> {
+class _CommonTagState extends State<CommonTag> {
   @override
   Widget build(BuildContext context) {
     return Container(

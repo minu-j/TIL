@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'styles/color.dart';
-import 'button.dart';
-import 'toggle.dart';
-import 'tag.dart';
-import 'BottomNav.dart';
+import 'bottom_nav_bar.dart';
+import 'recipe_card_tile.dart';
+import 'common_button.dart';
+import 'common_tag.dart';
+import 'common_toggle.dart';
+import 'recipe_list_tile.dart';
+import 'comment.dart';
 
 void main() {
   runApp(const MainScreen());
@@ -24,31 +27,27 @@ class _MainScreenState extends State<MainScreen> {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      home: CommentScreen(),
     );
   }
 }
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class CommentScreen extends StatefulWidget {
+  const CommentScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<CommentScreen> createState() => _CommentScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  bool isToggleOn = true;
-
-  _buttonAction() {
-    print('Button Pressed');
-  }
-
-  _toggleChange() {
+class _CommentScreenState extends State<CommentScreen> {
+  void changeTabIndex(int index) {
     setState(() {
-      isToggleOn = !isToggleOn;
+      _currentIndex = index;
     });
-    print(isToggleOn);
+    print('탭 변경 : $_currentIndex');
   }
+
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -56,29 +55,102 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
           title: Text(
             "Co-Cook!",
-            style: MainTextStyles().logo.copyWith(color: MainColors.redPrimary),
+            style: const MainTextStyles()
+                .logo
+                .copyWith(color: MainColors.redPrimary),
           ),
           backgroundColor: MainColors.monotoneLight,
           shadowColor: Colors.transparent),
-      body: Container(
-        alignment: Alignment.center,
-        child: Column(children: [
-          Button(
-            label: "버튼",
-            color: ButtonType.red,
-            isActive: true,
-            onPressed: _buttonAction,
-          ),
-          Toggle(label: "토글", isToggleOn: isToggleOn, onPressed: _toggleChange),
-          Row(
-            children: [
-              Tag(label: "태그1", onPressed: _buttonAction),
-              Tag(label: "태그2", onPressed: _buttonAction),
-            ],
-          )
-        ]),
-      ),
-      bottomNavigationBar: BottomNav(currentIndex: 0, onTap: (int index) {}),
+      body: Column(children: [Comment()]),
+      bottomNavigationBar:
+          BottomNav(currentIndex: _currentIndex, onTap: changeTabIndex),
     );
   }
 }
+
+// class HomeScreen extends StatefulWidget {
+//   const HomeScreen({super.key});
+
+//   @override
+//   State<HomeScreen> createState() => _HomeScreenState();
+// }
+
+// class _HomeScreenState extends State<HomeScreen> {
+//   bool isToggleOn = true;
+
+//   void _buttonAction() {
+//     print('Button Pressed');
+//   }
+
+//   void _toggleChange() {
+//     setState(() {
+//       isToggleOn = !isToggleOn;
+//     });
+//     print(isToggleOn);
+//   }
+
+//   void changeTabIndex(int index) {
+//     setState(() {
+//       _currentIndex = index;
+//     });
+//     print('탭 변경 : $_currentIndex');
+//   }
+
+//   int _currentIndex = 0;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//           title: Text(
+//             "Co-Cook!",
+//             style: const MainTextStyles()
+//                 .logo
+//                 .copyWith(color: MainColors.redPrimary),
+//           ),
+//           backgroundColor: MainColors.monotoneLight,
+//           shadowColor: Colors.transparent),
+//       body: Container(
+//         alignment: Alignment.center,
+//         child: Column(children: [
+//           CommonButton(
+//             label: "버튼",
+//             color: ButtonType.red,
+//             isActive: true,
+//             onPressed: _buttonAction,
+//           ),
+//           CommonToggle(
+//               label: "토글", isToggleOn: isToggleOn, onPressed: _toggleChange),
+//           Row(
+//             children: [
+//               CommonTag(label: "태그1", onPressed: _buttonAction),
+//               CommonTag(label: "태그2", onPressed: _buttonAction),
+//             ],
+//           ),
+//           GridView.builder(
+//             shrinkWrap: true,
+//             itemCount: 2,
+//             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+//               crossAxisCount: 2, // 2개의 열
+//               crossAxisSpacing: 16.0, // 열 간격
+//               mainAxisSpacing: 16.0, // 행 간격
+//               childAspectRatio: 0.7, // 아이템의 가로 세로 비율
+//             ),
+//             itemBuilder: (BuildContext context, int index) {
+//               return RecipeCardTile(cardData: {"index": index});
+//             },
+//           ),
+//           ListView.builder(
+//               shrinkWrap: true,
+//               itemCount: 2,
+//               itemBuilder: (BuildContext context, int index) {
+//                 return RecipeListTile(
+//                     cardData: {"index": index}, showImage: true);
+//               }),
+//         ]),
+//       ),
+//       bottomNavigationBar:
+//           BottomNav(currentIndex: _currentIndex, onTap: changeTabIndex),
+//     );
+//   }
+// }
