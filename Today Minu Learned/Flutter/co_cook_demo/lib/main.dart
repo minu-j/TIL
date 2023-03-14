@@ -65,8 +65,8 @@ class _CommentScreenState extends State<CommentScreen> {
       body: Stack(children: [
         Column(children: [
           Comment(
-            highlight: true,
-            myComment: true,
+            highlight: false,
+            myComment: false,
             panelController: panelController,
           ),
         ]),

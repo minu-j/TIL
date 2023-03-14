@@ -68,7 +68,7 @@ class _CommentState extends State<Comment> {
               margin: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 0.0),
               alignment: Alignment.centerLeft,
               child: Text(
-                "댓글내용",
+                "댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용",
                 style: const MainTextStyles()
                     .body1
                     .copyWith(color: MainColors.monotoneBlack),
@@ -110,6 +110,9 @@ class _CommentState extends State<Comment> {
                 child: Container(
                   margin: const EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
                   height: 40,
+                  color: widget.highlight
+                      ? MainColors.redLight
+                      : MainColors.monotoneLight,
                   child: Row(
                     children: [
                       const Icon(

@@ -19,13 +19,40 @@ class _CommentReplyState extends State<CommentReply> {
     return SlidingUpPanel(
       controller: panelController,
       backdropEnabled: true,
-      padding: EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 0.0),
       borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(16.0), topRight: Radius.circular(16.0)),
       minHeight: 0.0,
       color: MainColors.monotoneLight,
       panel: Column(
         children: [
+          Container(
+            height: 24,
+            child: Icon(
+              Icons.horizontal_rule_rounded,
+              size: 52,
+              color: MainColors.monotoneLightGray,
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
+            height: 40,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "댓글 0개",
+                    style: const MainTextStyles()
+                        .subtitle2
+                        .copyWith(color: MainColors.monotoneBlack),
+                  ),
+                  GestureDetector(
+                      onTap: () {
+                        panelController.close(); // 댓글창 닫는 함수
+                        FocusScope.of(context).unfocus(); // 키보드 닫는 함수
+                      },
+                      child: Icon(Icons.close))
+                ]),
+          ),
           Expanded(
             child: SingleChildScrollView(
               reverse: true,
@@ -41,7 +68,7 @@ class _CommentReplyState extends State<CommentReply> {
                     myReply: false,
                   ),
                   CommentReplyBubble(
-                    myReply: false,
+                    myReply: true,
                   ),
                   CommentReplyBubble(
                     myReply: false,
@@ -52,7 +79,7 @@ class _CommentReplyState extends State<CommentReply> {
           ),
           Container(
             width: double.infinity,
-            height: 96,
+            height: 48,
             decoration: BoxDecoration(
                 color: MainColors.monotoneLight,
                 boxShadow: const [
