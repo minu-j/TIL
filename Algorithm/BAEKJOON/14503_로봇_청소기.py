@@ -41,6 +41,8 @@ def clean(y, x, direction):
             clean(y + di[back(direction)], x + dj[back(direction)], direction)
 
 
+
+
 N, M = map(int, input().split())
 r, c, d = map(int, input().split())
 matrix = [list(map(int, input().split())) for _ in range(N)]
