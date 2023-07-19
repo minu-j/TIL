@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(10**4)
+
 def play(score=0, l=0, r=0):
     global ans, count
     count += 1
