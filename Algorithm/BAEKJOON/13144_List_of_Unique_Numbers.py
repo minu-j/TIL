@@ -1,29 +1,22 @@
-def seq(n):
+def sum_seq(n):
     return n * (n + 1) // 2
 
 
-N = int(input())
-arr = list(map(int, input().split()))
-
-visited = set()
-break_idx = set()
-point = [0, 0]
-prev = 0
-ans = 0
+N, arr = int(input()), list(map(int, input().split()))
+seq, overlap, ans = [], 0, 0
 
 for i in range(N):
-    if arr[i] in visited:
-        ans += seq(point[1] - point[0]) - seq(prev - point[0])
-        break_idx.add(arr[i])
-        while True:
-            if arr[point[0]] in break_idx:
-                point[0] += 1
-                prev = point[1]
-                break
-            point[0] += 1
+    if arr[i] not in seq:
+        seq.append(arr[i])
     else:
-        visited.add(arr[i])
-    point[1] += 1
+        count = len(seq)
+        while True:
+            seq.pop(0)
+            if arr[i] not in seq:
+                ans += sum_seq(count) - sum_seq(overlap)
+                overlap = len(seq)
+                seq.append(arr[i])
+                break
+ans += sum_seq(len(seq)) - sum_seq(overlap)
 
-ans += seq(point[1] - point[0]) - seq(prev - point[0])
 print(ans)
