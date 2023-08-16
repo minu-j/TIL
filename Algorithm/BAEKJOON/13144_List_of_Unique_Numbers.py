@@ -24,5 +24,6 @@ for i in range(N):
     else:
         visited.add(arr[i])
     point[1] += 1
+
 ans += seq(point[1] - point[0]) - seq(prev - point[0])
 print(ans)
