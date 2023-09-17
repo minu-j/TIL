@@ -1,13 +1,44 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { StreamBarcodeReader } from 'vue-barcode-reader'
+import { onMounted, ref } from 'vue'
+import MobileDetect from 'mobile-detect'
 
-const a = ref(0)
+const code = ref('스캔중')
+const isMobile = ref('')
+
+const onDecode = (value: string) => {
+  code.value = value
+}
+const onLoaded = () => {
+  console.log('Ready to start scanning barcodes')
+}
+onMounted(() => {
+  const md = new MobileDetect(window.navigator.userAgent)
+  isMobile.value = md.mobile() ?? 'null'
+})
 </script>
 
 <template>
-  <div>{{ a }}</div>
-  <button @click="a++">up</button>
+  <div>{{ isMobile }}</div>
+  <div class="barcode-scanner-container">
+    <StreamBarcodeReader @decode="onDecode" @loaded="onLoaded" />
+  </div>
+
+  <div>{{ code }}</div>
 </template>
 
-<styles>
-</styles>
+<style lang="scss">
+.barcode-scanner-container {
+  width: 400px;
+}
+.scanner-container {
+  & {
+    .laser {
+      display: none;
+    }
+    .overlay-element {
+      display: none;
+    }
+  }
+}
+</style>

@@ -29,10 +29,8 @@
   --color-warning: #ffba00;
   --color-danger: #ff69b4;
   --color-gray: #a4a9b6;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
+  &.dark-mode {
     color: var(--color-primary-text);
     background-color: var(--color-primary-bg);
     a {

@@ -18,6 +18,11 @@ const router = createRouter({
       path: '/barcode',
       name: 'barcode',
       component: () => import('../views/BarcodeReadView.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginView.vue')
     }
   ]
 })
