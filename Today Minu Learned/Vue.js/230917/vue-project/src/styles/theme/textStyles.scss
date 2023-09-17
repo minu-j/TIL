@@ -1,0 +1,46 @@
+@import './colorStyles.scss';
+
+body {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  font-family: Pretendard, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 3rem; /* 109.091% */
+  letter-spacing: -0.5%;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 2.8125rem; /* 125% */
+  letter-spacing: -0.5%;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 2.8125rem; /* 125% */
+  letter-spacing: -0.5%;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.5625rem; /* 125% */
+  letter-spacing: -0.5%;
+}
+
+a {
+  text-decoration-color: none;
+}
