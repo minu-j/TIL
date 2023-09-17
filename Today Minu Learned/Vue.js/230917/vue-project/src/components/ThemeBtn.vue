@@ -1,31 +1,43 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
-const isDarkMode = ref<boolean>(false)
-
-const getTheme = () => localStorage.getItem('user-theme')
-const getMediaPreference = () =>
-  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+const isDark = ref<boolean>(false)
+const isSystemDark: MediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
+const handleSystemDarkChange = (e: MediaQueryListEvent) => {
+  localStorage.removeItem('theme-mode')
+  e.matches ? setTheme(true) : setTheme(false)
+}
 
 onMounted(() => {
-  const prevSetMode = getTheme() === 'dark' || getMediaPreference() === 'dark'
-  console.log(prevSetMode)
-  isDarkMode.value = prevSetMode ? true : false
-  document.documentElement.className = prevSetMode ? 'dark-mode' : ''
+  const userTheme = localStorage.getItem('theme-mode')
+  if (userTheme) {
+    isDark.value = userTheme === 'dark' ? true : false
+    document.documentElement.className = userTheme === 'dark' ? 'dark-mode' : ''
+  } else {
+    isDark.value = isSystemDark ? true : false
+    document.documentElement.className = isSystemDark ? 'dark-mode' : ''
+  }
+  isSystemDark.addEventListener('change', handleSystemDarkChange)
 })
 
-const toggleTheme = () => setTheme(!isDarkMode.value)
+onUnmounted(() => {
+  isSystemDark.removeEventListener('change', handleSystemDarkChange)
+})
 
-const setTheme = (isDark: boolean) => {
-  localStorage.setItem('user-theme', isDark ? 'dark' : 'light')
-  isDarkMode.value = isDark
-  document.documentElement.className = isDark ? 'dark-mode' : ''
+const toggleTheme = () => {
+  isDark.value ? setTheme(false) : setTheme(true)
+  localStorage.setItem('theme-mode', isDark.value ? 'dark' : 'light')
+}
+
+const setTheme = (mode: boolean) => {
+  isDark.value = mode
+  document.documentElement.className = mode ? 'dark-mode' : ''
 }
 </script>
 
 <template>
   <div>
-    <button @click="toggleTheme">{{ isDarkMode }}</button>
+    <button @click="toggleTheme">{{ isDark }}</button>
   </div>
 </template>
 
