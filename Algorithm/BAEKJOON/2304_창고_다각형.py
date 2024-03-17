@@ -7,11 +7,11 @@ N = int(input())
 container = [0] * 1001
 for n in range(N):
     L, H = map(int, input().split())
-    if container[L] < H:
-        container[L] = H
+    container[L] = H
 
 maxHeight = max(container)
 
+# 왼쪽부터 탐색하며 좌, 우의 가장 높은 기둥과 본인 높이 중 큰 값을 넓이로 한다.
 for c in range(1, len(container) - 1):
     container[c] = max(container[c], min(
         max(container[:c]), max(container[c + 1:])))
@@ -27,17 +27,19 @@ posts = sorted([tuple(map(int, input().split(' ')))
 
 ans = 0
 
+# 왼쪽부터 탐색하며 가장 높은 기둥을 만날 때 까지 넓이 더하기
 highestLeft = (0, 0)
 for i in range(N):
     if posts[i][1] > highestLeft[1]:
         ans += highestLeft[1] * (posts[i][0] - highestLeft[0])
         highestLeft = posts[i]
 
+# 오른쪽부터 탐색하며 가장 높은 기둥을 만날 때 까지 넓이 더하기
 highestRight = (1001, 0)
 for i in range(N - 1, -1, -1):
     if posts[i][1] > highestRight[1]:
         ans += highestRight[1] * (highestRight[0] - posts[i][0])
         highestRight = posts[i]
 
-
+# 누적 넓이 + 가장 높은 기둥들 사이의 넓이
 print(ans + (highestLeft[1] * ((highestRight[0] + 1) - highestLeft[0])))
