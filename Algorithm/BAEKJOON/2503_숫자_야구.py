@@ -10,36 +10,19 @@ num_set = set(map(lambda x: ''.join(x),
 for turn in range(int(input())):
     qusetion, strike, ball = input().split()
     strike, ball = int(strike), int(ball)
-    turn_possible_num_set = set()
+    possible_num_set = set()
 
-    strike_idx_list = list(combinations(range(3), strike))
-    ball_idx_list = []
-    for i in range(len(strike_idx_list)):
-        ball_idx_list.append(
-            list(combinations(set(range(3)) - set(strike_idx_list[i]), ball)))
+    for num in num_set:
+        strike_cnt, ball_cnt = 0, 0
 
-    for s, b in zip(strike_idx_list, ball_idx_list):
-        possible_num_set = set()
-        for num in num_set:
-            isPossible = True
-            for s_idx in s:
-                if qusetion[s_idx] != num[s_idx]:
-                    isPossible = False
-            if not isPossible:
-                continue
+        for i in range(3):
+            if num[i] == qusetion[i]:   # strike 카운트
+                strike_cnt += 1
+            elif num[i] in qusetion:    # ball 카운트
+                ball_cnt += 1
+        if strike_cnt == strike and ball_cnt == ball:
+            possible_num_set.add(num)
 
-            if ball:
-                for b_idx_list in b:
-                    for b_idx in b_idx_list:
-                        if (qusetion[b_idx] == num[b_idx]) and (num in possible_num_set):
-                            possible_num_set.remove(num)
-                        if not ((qusetion[b_idx] == num[b_idx]) or (qusetion[b_idx] not in num)):
-                            possible_num_set.add(num)
-            else:
-                possible_num_set.add(num)
-
-        turn_possible_num_set = turn_possible_num_set.union(possible_num_set)
-
-    num_set &= turn_possible_num_set
+    num_set = possible_num_set
 
 print(len(num_set))
